@@ -1,0 +1,112 @@
+.subscription-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.subscription-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subscription-container .title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.plans {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.plan-card {
+  background: linear-gradient(to bottom, #1f00ff, #000000);
+  color: white;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  width: 260px;
+  min-height: 390px; /* <-- Increased height here */
+  position: relative;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.plan-card:hover {
+  transform: scale(1.05);
+}
+
+.plan-card h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.plan-card .price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.plan-card .per {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.plan-card li {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.check {
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.plan-button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Free button - Cyan */
+.free-btn {
+  background: #00f0ff;
+  color: black;
+}
+
+/* Buy button - Yellow */
+.buy-btn {
+  background: #fdb714;
+  color: black;
+}
+
+.tag {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}

@@ -1,0 +1,274 @@
+/* Global Section */
+.contact-section {
+  margin-top: 180px;
+  min-height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.contact-subtitle {
+  color: #4b5563;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+/* Info Section (Map + Details) */
+.info-section {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.map-container {
+  /* border-radius: 1.5rem; */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  min-height: 350px;
+}
+
+.details-container {
+  background: transparent;
+  padding: 2rem;
+ 
+}
+
+.details-container h2 {
+  font-size: 1.6rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.details-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.details-container li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.icon {
+  margin-right: 0.8rem;
+  color: #6366f1;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 1.5rem;
+}
+
+.follow-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.icon-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-links a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-links a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon-links a:nth-child(1) {
+  background: #0a66c2; /* LinkedIn */
+}
+.icon-links a:nth-child(2) {
+  background: #e1306c; /* Instagram */
+}
+.icon-links a:nth-child(3) {
+  background: #1877f2; /* Facebook */
+}
+
+/* Form */
+.contact-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  width: 100%;
+  margin-top: 150px;
+}
+
+.form-card h2 {
+  font-size: 1.6rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.8rem;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  transition: border 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #6366f1;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -8px;
+  left: 0.8rem;
+  font-size: 0.8rem;
+  color: #6366f1;
+  background: white;
+  padding: 0 0.4rem;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #03a2a0;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #0f55bd;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    min-height: 300px;
+  }
+}
+/* Dark Theme Mode */
+.contact-section.dark-theme {
+  background: rgb(0, 0, 0);
+  transition: background 0.6s ease;
+}
+
+.contact-section.dark-theme .contact-title,
+.contact-section.dark-theme .contact-subtitle,
+.contact-section.dark-theme .details-container h2,
+.contact-section.dark-theme .details-container li,
+.contact-section.dark-theme .follow-header {
+  color: #f9fafb;
+  transition: color 0.6s ease;
+}
+
+.contact-section.dark-theme .icon {
+  color: #a5b4fc; /* lighter violet */
+}
+/* Smooth background + text transition */
+.contact-section {
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* Dark theme state */
+.contact-section.dark-theme {
+  background: #000000; /* dark gray */
+  color: #f3f4f6;
+}
+
+.contact-section.dark-theme .contact-title,
+.contact-section.dark-theme .details-container h2,
+.contact-section.dark-theme .form-card h2 {
+  color: #f9fafb;
+}
+
+.contact-section.dark-theme .details-container li,
+.contact-section.dark-theme .contact-subtitle {
+  color: #d9dbd1;
+}
+
+.contact-section.dark-theme .contact-card {
+  background: #1f2937;
+  color: #f9fafb;
+}
+.contact-section {
+  transition: background-color 0.9s ease, color 0.9s ease;
+  padding: 2rem;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #222;
+}
+
+.dark-theme {
+  background-color: #111;
+  color: #f1f1f1;
+}

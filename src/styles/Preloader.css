@@ -1,0 +1,101 @@
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  transition: transform 1s ease, opacity 2s ease;
+}
+
+.preloader-wrapper.slide-out {
+  transform: translateX(-100%);
+  opacity: 100%;
+}
+
+.preloader-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.loader-footer {
+  position: absolute;
+  bottom: 5%;
+  color: #c0bebe78;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-left: 20px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.loader-footer {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 0.3em;
+  font-weight: 450;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.company-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial state for fade-in animation (if needed) */
+.company-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-out effect when preloader ends */
+.company-letter.hide {
+  animation: fadeOutUp 0.4s forwards;
+}
+
+/* Fade-out and slide-up keyframes */
+@keyframes fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

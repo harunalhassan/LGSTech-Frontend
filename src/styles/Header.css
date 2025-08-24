@@ -1,0 +1,352 @@
+/* Header base */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 2.5rem;
+  opacity: 1;
+  transform: translateY(0);
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 180px;
+}
+
+.header.shrink {
+  padding: 1.2rem 3rem;
+}
+
+.header.slide-up {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.header.slide-down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Nav layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-left: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  position: relative;
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+  padding: 0.5rem;
+  transition: color 0.4s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #166b61;
+  transition: width 0.4s ease;
+}
+
+.nav-links a:hover {
+  color: #229c8e;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Menu icon (hamburger) */
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.menu-icon:hover span:nth-child(1) {
+  width: 30px;
+}
+
+.menu-icon:hover span:nth-child(2) {
+  width: 20px;
+}
+
+.menu-icon:hover span:nth-child(3) {
+  width: 25px;
+}
+
+/* Responsive for smaller screens */
+/* @media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+} */
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(0% at 100% 0%);
+  animation: circleExpand 0.7s ease-out forwards;
+  overflow: hidden;
+}
+
+.menu-overlay.closing {
+  animation: circleContract 0.7s ease-in forwards;
+}
+
+/* Opening animation (circular expand from top-right) */
+@keyframes circleExpand {
+  0% {
+    clip-path: circle(0% at 100% 0%);
+  }
+  100% {
+    clip-path: circle(150% at 100% 0%);
+  }
+}
+
+/* Closing animation (circular contract to top-right) */
+@keyframes circleContract {
+  0% {
+    clip-path: circle(150% at 100% 0%);
+  }
+  100% {
+    clip-path: circle(0% at 100% 0%);
+  }
+}
+
+
+
+/* Overlay link styling */
+.overlay-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.overlay-links li {
+  margin: 20px 0;
+  font-size: 1.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.overlay-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.overlay-links a:hover {
+  color: #9abb4d;
+}
+
+/* Close icon (×) */
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.close-icon:hover {
+  transform: rotate(90deg);
+}
+.logo {
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 8px; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #222;
+  user-select: none;
+  padding-bottom: 0px;
+
+}
+
+.logo-icon {
+  height: 80px;
+  width: auto;
+  display: block;
+  padding-top: 20px;
+  
+}
+
+.logo-text {
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+ 
+ 
+}
+
+/* ============================= */
+/* Responsive Header Adjustments */
+/* ============================= */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .header {
+    padding: 1.5rem 2rem;
+    height: auto;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .logo-icon {
+    height: 60px;
+    padding-top: 10px;
+  }
+
+  .nav-links {
+    display: none; /* hide nav links */
+  }
+
+  .menu-icon {
+    display: flex; /* keep menu (hamburger) visible */
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+    height: auto;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .logo-icon {
+    height: 50px;
+    padding-top: 5px;
+  }
+
+  .nav-container {
+    gap: 1.5rem;
+  }
+
+  .nav-links {
+    display: none; /* ensure links are hidden */
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
+
+/* Small mobiles */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    height: 40px;
+    padding-top: 0;
+  }
+}
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(0% at 100% 0%);
+  animation: circleExpand 0.7s ease-out forwards;
+  overflow: hidden;
+}
+
+/* Closing animation */
+.menu-overlay.closing {
+  animation: circleContract 0.7s ease-in forwards;
+}
+
+/* EXPAND animation */
+@keyframes circleExpand {
+  from {
+    clip-path: circle(0% at 100% 0%);
+  }
+  to {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+/* CONTRACT animation */
+@keyframes circleContract {
+  from {
+    clip-path: circle(150% at 50% 50%);
+  }
+  to {
+    clip-path: circle(0% at 100% 0%);
+  }
+}
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+    /* margin-right: 100px; */
+  }
+  .nav-links {
+    display: none;
+  }
+}

@@ -1,0 +1,359 @@
+.about-section {
+  margin-top: 200px;
+  position: relative;
+
+  /* Use background-image instead of shorthand */
+  background-color: white;
+
+  background-repeat: no-repeat;
+
+  color: #000000;
+  min-height: 100vh;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/cubes.png");
+  opacity: 0.1; /* lowered so gradient shows better */
+  pointer-events: none;
+}
+
+
+.about-container {
+  position: relative;
+  max-width: 1300px;
+  text-align: center;
+  z-index: 2;
+}
+
+.about-title {
+  font-size:3.2rem;
+  font-weight: 700;
+  margin: 0 auto 20px;   /* centers horizontally */
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  max-width: 1000px;
+  text-align: center;    /* ensures text is centered */
+  display: block;        /* avoid inline alignment issues */
+}
+
+
+.heading{
+  color: #0b8a77;
+  margin-bottom: 100px;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto 6px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-intro span {
+  color: #020505;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+/* modified */
+
+
+
+
+
+.about-main {
+  display: flex;
+  align-items: center;          /* center vertically */
+  justify-content: space-between; /* spread evenly like metrics */
+  gap: 200px;                    /* balanced spacing */
+  max-width: 1250px;            /* same as metrics section */
+  margin: 150px auto;           /* center the section */
+  padding: 0 20px;              /* same padding as metrics */
+}
+
+.about-text,
+.about-ceo {
+  flex: 1;                      /* equal size for both columns */
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align:left;
+}
+
+.about-ceo {
+  flex: 0.8;
+  text-align: center;
+}
+
+.about-ceo img {
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+}
+
+.about-ceo h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.about-ceo p {
+  font-size: 15px;
+  color: #6b7280;
+}
+/* ===== METRICS SECTION ===== */
+.metrics-section {
+  max-width: 1250px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.metrics-card {
+  background: #111827; /* Dark background */
+  border-radius: 16px;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #1ccdcd;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.metric {
+  text-align: center;
+  flex: 1;
+}
+
+.metric h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.metric p {
+  font-size: 15px;
+  color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .metrics-card {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+/* ===== CORE VALUES SECTION ===== */
+/* ===== CORE VALUES SECTION ===== */
+.core-values {
+  max-width: 1250px;
+  margin: 60px auto;
+  padding: 60px 20px;
+  text-align: center
+}
+
+.core-values h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.values-intro {
+  max-width: 750px;
+  margin: 0 auto 40px;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Fixed 3x2 grid layout with proper spacing */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exactly 3 per row */
+  column-gap: 25px;  /* space between columns */
+  row-gap: 100px;     /* space between rows */
+  justify-content: center;
+  align-items: stretch;
+}
+
+.value-card {
+  background: #f6f5f5;
+  border-radius: 30px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(255, 254, 254, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.value-card .icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.value-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Responsive: stack into 2 or 1 column on smaller screens */
+@media (max-width: 992px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px; /* extra row spacing for smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
+}
+
+/* ===== WHAT WE DO SECTION ===== */
+.what-we-do {
+  max-width: 1300px;
+  margin: 70px auto;
+  padding: 0 5px;
+}
+
+.what-we-do-card {
+  background: #111827; /* Dark background */
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  padding: 40px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.what-we-do-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.what-we-do-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 850px;
+  margin: 0 auto 30px;
+  color: #d1d5db;
+}
+
+.what-we-do-btn {
+  background: #0b8a77;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.what-we-do-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .what-we-do-card {
+    padding: 40px 20px;
+  }
+  
+  .what-we-do-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .what-we-do-card p {
+    font-size: 1rem;
+  }
+}
+/* Fade In Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto 6px;
+  font-family: "Montserrat", sans-serif;
+  opacity: 0;                         /* start invisible */
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;              /* delay for a smoother effect */
+}
+
+.highlight_text{
+  color: #10877b;
+
+}
+/* Value card icons */
+.value-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.secondary-btn {
+  background: #7d8a0b; /* greenish secondary */
+}
+
+.secondary-btn:hover {
+  background: #2563eb;
+}

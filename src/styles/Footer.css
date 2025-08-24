@@ -1,0 +1,162 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  min-height: 250px; /* use min-height instead of fixed */
+  padding-left: 100px;
+  padding-right: 100px;
+  box-sizing: border-box;
+}
+
+/* Left Section */
+.footer-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-left span {
+  font-weight: normal;
+}
+
+.footer-left p {
+  margin: 0.5rem 0 1rem;
+}
+
+.footer-left img {
+  height: 120px;
+  width: 200px;
+  margin-left: 0px;
+  max-width: 100%;
+}
+
+/* Socials */
+.socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/* Columns */
+.footer-columns {
+  display: flex;
+  gap: 6rem;
+  flex-wrap: wrap;
+}
+
+.column h4 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column ul li {
+  margin: 0.6rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.column ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.column ul li:hover {
+  color: #07a7a4;
+  transform: scale(1.05);
+}
+
+.column ul li:hover::after {
+  width: 100%;
+}
+
+/* Subscribe */
+.subscribe input {
+  padding: 0.4rem;
+  border: 1px solid rgba(116, 115, 115, 0.216);
+  border-radius: 5px 0 0 5px;
+  width: 180px;
+  max-width: 100%;
+}
+
+.subscribe button {
+  background: #3a86ff;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 0.65rem;
+}
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .footer-columns {
+    gap: 4rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .footer-left {
+    margin-bottom: 2rem;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .subscribe {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.5rem;
+  }
+
+  .footer-left h3 {
+    font-size: 1.2rem;
+  }
+
+  .column h4 {
+    font-size: 0.9rem;
+  }
+
+  .subscribe input {
+    width: 140px;
+  }
+}
