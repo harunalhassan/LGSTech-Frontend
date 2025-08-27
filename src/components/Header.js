@@ -12,6 +12,8 @@ function Header() {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const [isNewsOpen, setIsNewsOpen] = useState(false);
+  const [isStoriesOpen, setIsStoriesOpen] = useState(false);
 
   // Scroll logic
   useEffect(() => {
@@ -104,9 +106,54 @@ function Header() {
       <div className="nav-container">
         <nav className="nav-links" data-aos="fade-down" data-aos-duration="1000">
           <Link to="/">Home</Link>
-          {/* ✅ Fixed: No overlay when scrolling to products */}
           <Link to="/" onClick={(e) => handleProductsClick(e, false)}>Products</Link>
           <Link to="/services">Services</Link>
+
+          {/* 🔽 News Dropdown (hover-based) */}
+          <div 
+            className="dropdown" 
+            onMouseEnter={() => setIsNewsOpen(true)} 
+            onMouseLeave={() => setIsNewsOpen(false)}
+          >
+            <Link to="/news" className="dropdown-link">News ▾</Link>
+            {isNewsOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/news/nadita2024">Nadita 2024</Link>
+                </li>
+                <li>
+                  <Link to="/news/nadita2023">Nadita 2023</Link>
+                </li>
+              </ul>
+            )}
+          </div>
+          
+
+           {/* 🔽 News Dropdown (hover-based) */}
+          <div 
+            className="dropdown" 
+            onMouseEnter={() => setIsStoriesOpen(true)} 
+            onMouseLeave={() => setIsStoriesOpen(false)}
+          >
+            <Link to="/stories" className="dropdown-link">Stories ▾</Link>
+            {isStoriesOpen && (
+              <ul className="dropdown-menu">
+                <li>
+                  <Link to="/stories/gecolsa">Gecolsa CAT</Link>
+                </li>
+                <li>
+                  <Link to="/stories/folycat">Foley CAT</Link>
+                </li>
+                <li>
+                  <Link to="/stories/pon-Norway-CAT">Pon Norway CAT</Link>
+                </li>
+                <li>
+                  <Link to="/stories/pon-Netharlands-CAT">Pon Netherlands CAT</Link>
+                </li>
+              </ul>
+            )}
+          </div>
+          
         </nav>
 
         <div
@@ -137,7 +184,6 @@ function Header() {
                 About
               </Link>
             </li>
-            {/* ✅ Fixed: In overlay, close menu after scrolling */}
             <li>
               <Link to="/" onClick={(e) => handleProductsClick(e, true)}>
                 Product

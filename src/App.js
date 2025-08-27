@@ -21,6 +21,15 @@ import Contact from './pages/Contact';
 // Styles
 import './styles/App.css';
 import logo from '../src/assets/LGS_portrait.png'; // adjust relative path
+import Nadita2024 from './pages/News/Nadita2024';
+import Nadita2023 from './pages/News/Nadita2023';
+import News from './pages/News/News';
+import GecolsaProject from './pages/stories/Gecolsa';
+import FoleyCAT from './pages/stories/FoleyCAT';
+import PonPowerNorwayEquipment from './pages/stories/PonPowerNorwayEquipment';
+import PonPowerNetherlands from './pages/stories/PonPowerNetherlands';
+import StoryPage from './pages/stories/StoryPage';
+
 
 function App() {
   const [ready, setReady] = useState(false);
@@ -50,6 +59,15 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
              <Route path="/services" element={<Services />} />
+             <Route path="/news/nadita2024" element={<Nadita2024 />} />
+             <Route path="/news/nadita2023" element={<Nadita2023 />} />
+             <Route path="/news" element={<News />} />
+             <Route path="/stories/gecolsa" element={<GecolsaProject />} />
+             <Route path="/stories/folyCAT" element={<FoleyCAT/>} />
+             <Route path="/stories/pon-Norway-CAT" element={<PonPowerNorwayEquipment/>} />
+             <Route path="/stories/pon-Netharlands-CAT" element={<PonPowerNetherlands/>} />
+             <Route path="/stories" element={<StoryPage/>} />
+      
             {/*
            
             

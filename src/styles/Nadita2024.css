@@ -1,0 +1,129 @@
+/* === CONTAINER === */
+.nadita-container {
+  max-width: 1150px;
+  margin: 120px auto;
+  padding: 3rem 2rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.8;
+  color: #1e1e1e;
+}
+
+/* === TITLE === */
+.nadita-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(90deg, #029d7c, #04565f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInDown 1s ease;
+}
+
+/* === HEADER SECTION === */
+.nadita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.nadita-text {
+  flex: 2;
+  font-size: 1.1rem;
+  text-align: justify;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-left: 4px solid #2563eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.nadita-text:hover {
+  transform: translateY(-3px);
+}
+
+.nadita-logo {
+  flex: 1;
+  text-align: center;
+}
+
+.nadita-logo img {
+  max-width: 260px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.nadita-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* === SECTIONS === */
+.nadita-section {
+  
+  font-size: 1.1rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  /* box-shadow: 0 6px 18px rgba(0,0,0,0.08); */
+  transition: transform 0.3s ease;
+}
+
+
+.nadita-section p {
+  margin-bottom: 1rem;
+}
+
+/* === LISTS === */
+.nadita-section ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.nadita-section li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.nadita-section li::before {
+  content: "✔";
+  color: #2563eb;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* === IMAGES === */
+.nadita-image {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.nadita-image img {
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.nadita-image img:hover {
+  transform: scale(1.03);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

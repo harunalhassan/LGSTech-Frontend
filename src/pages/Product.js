@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Product.css';
-import product1 from '../assets/product1.jpg';
-import product2 from '../assets/product2.jpg';
-import product3 from '../assets/product3.jpg';
+
 
 const products = [
   {
@@ -10,21 +8,21 @@ const products = [
     name: 'Product 1',
     price: '$10.99',
     description: 'Body text for describing what this product is and why this product is simply a must-buy.',
-    img: product1
+    
   },
   {
     id: 2,
     name: 'Product 2',
     price: '$10.99',
     description: 'Body text for describing what this product is and why this product is simply a must-buy.',
-    img: product2
+    
   },
   {
     id: 3,
     name: 'Product 3',
     price: '$10.99',
     description: 'Body text for describing what this product is and why this product is simply a must-buy.',
-    img: product3
+    
   }
 ];
 
