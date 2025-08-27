@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Stories.css";
-import gecolsaLogo from "../../assets/stories/BSTRONG.avif";
-import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.avif";
+import gecolsaLogo from "../../assets/stories/BSTRONG.jpg";
+import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg";
 
 const GecolsaProject = () => {
   return (

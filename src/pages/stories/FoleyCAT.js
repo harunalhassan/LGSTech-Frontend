@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Stories.css";
-import foleyLogo from "../../assets/stories/Foley logo_border.avif"; 
-import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.avif";       
+import foleyLogo from "../../assets/stories/Foley logo_border.jpg"; 
+import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg";       
 
 const FoleyCAT = () => {
   return (

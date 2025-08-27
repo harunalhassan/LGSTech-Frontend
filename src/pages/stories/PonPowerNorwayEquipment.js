@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Stories.css";
-import poncatLogo from "../../assets/stories/Pon-Power-logo.avif"; // replace with actual PonCAT unified logo path
-import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.avif"; // replace with actual XAPT logo path
+import poncatLogo from "../../assets/stories/Pon-Power-logo.jpg"; // replace with actual PonCAT unified logo path
+import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg"; // replace with actual XAPT logo path
 
 const PonPowerNorwayEquipment = () => {
   return (

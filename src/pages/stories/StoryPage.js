@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Stories.css";
 
-import foleyImg from "../../assets/stories/Foley logo_border.avif";
-import poncatImg from "../../assets/stories/Pon-Power-logo.avif";
-import xaptImg from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.avif";
+import foleyImg from "../../assets/stories/Foley logo_border.jpg";
+import poncatImg from "../../assets/stories/Pon-Power-logo.jpg";
+import xaptImg from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg";
 import bgImg from "../../assets/stories/pexels-olia-danilevich-8145336.jpg";
 
 import coverFoley from "../../assets/carousel1.jpg";

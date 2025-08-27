@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/News.css";
 
-import nadita2024Img from "../../assets/News/NADITA_2024_Stand_600.avif";
-import nadita2023Img from "../../assets/News/9dc16a_a66b73c8ea9c4c40a2929ec3c1491bc3~mv2.avif";
+import nadita2024Img from "../../assets/News/NADITA_2024_Stand_600.jpg";
+import nadita2023Img from "../../assets/News/9dc16a_a66b73c8ea9c4c40a2929ec3c1491bc3~mv2.jpg";
 
 const News = () => {
   useEffect(() => {

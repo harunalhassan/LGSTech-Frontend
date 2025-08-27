@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Nadita2024.css";
-import naditaLogo from "../../assets/News/NADITA_2024_600.avif"; // replace with your 2023 logo
-import expoImage from "../../assets/News/NADITA_2024_Stand_600.avif";  // replace with your 2023 expo image
+import naditaLogo from "../../assets/News/NADITA_2024_600.jpg"; // replace with your 2023 logo
+import expoImage from "../../assets/News/NADITA_2024_Stand_600.jpg";  // replace with your 2023 expo image
 
 const Nadita2024 = () => {
   return (

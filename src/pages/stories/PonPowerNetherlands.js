@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/Stories.css";
-import poncatLogo from "../../assets/stories/Pon-Power-logo.avif"; // replace with actual PonCAT logo
-import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.avif"; // replace with actual XAPT logo
-import excavatorImg from "../../assets/stories/9dc16a_63c96741d08d40468c551d4a85d1355b~mv2.avif"; // replace with actual excavator image path
+import poncatLogo from "../../assets/stories/Pon-Power-logo.jpg"; // replace with actual PonCAT logo
+import xaptLogo from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg"; // replace with actual XAPT logo
+import excavatorImg from "../../assets/stories/9dc16a_63c96741d08d40468c551d4a85d1355b~mv2.jpg"; // replace with actual excavator image path
 
 const PonPowerNetherlands = () => {
   return (
