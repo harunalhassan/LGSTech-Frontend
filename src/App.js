@@ -65,7 +65,7 @@ function App() {
              <Route path="/stories/gecolsa" element={<GecolsaProject />} />
              <Route path="/stories/folyCAT" element={<FoleyCAT/>} />
              <Route path="/stories/pon-Norway-CAT" element={<PonPowerNorwayEquipment/>} />
-             <Route path="/stories/pon-Netharlands-CAT" element={<PonPowerNetherlands/>} />
+             <Route path="/stories/pon-Netherlands-CAT" element={<PonPowerNetherlands/>} />
              <Route path="/stories" element={<StoryPage/>} />
       
             {/*

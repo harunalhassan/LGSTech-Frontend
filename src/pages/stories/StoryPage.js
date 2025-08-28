@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Stories.css";
 
 import foleyImg from "../../assets/stories/Foley logo_border.jpg";
@@ -7,9 +7,9 @@ import poncatImg from "../../assets/stories/Pon-Power-logo.jpg";
 import xaptImg from "../../assets/stories/XN_XAPT_logo_pos_RGB_1600.jpg";
 import bgImg from "../../assets/stories/pexels-olia-danilevich-8145336.jpg";
 
-import coverFoley from "../../assets/carousel1.jpg";
-import coverNorway from "../../assets/carousel1.jpg";
-import coverNL from "../../assets/carousel1.jpg";
+import coverFoley from "../../assets/stories/pexels-fauxels-3183197.jpg";
+import coverNorway from "../../assets/stories/pexels-kampus-8204387.jpg";
+import coverNL from "../../assets/stories/pexels-khwanchai-12885861.jpg";
 import coverGecolsa from "../../assets/carousel1.jpg";
 
 const stories = [
@@ -18,7 +18,7 @@ const stories = [
     title: "Foley CAT — Flawless Data Migration",
     teaser:
       "15 months, zero data loss, and a seamless NAXT365 upgrade. See how collaboration powered a perfect go-live.",
-    to: "/stories/foley-cat",
+    to: "/stories/folycat",
     cover: coverFoley || foleyImg,
     tags: ["NAXT365", "Migration", "USA"],
   },
@@ -27,7 +27,7 @@ const stories = [
     title: "Pon Power Norway & Equipment",
     teaser:
       "From trials to full deployment — a four-month transformation tailored for two Norwegian legal entities.",
-    to: "/stories/pon-power-norway-equipment",
+    to: "/stories/pon-Norway-CAT",
     cover: coverNorway || bgImg,
     tags: ["Finance & Ops", "CutOver", "PreCut"],
   },
@@ -36,7 +36,7 @@ const stories = [
     title: "Pon Power Netherlands — Project Completion",
     teaser:
       "A multi-year journey across four legal entities culminates in a modern NAXT 365 system.",
-    to: "/stories/pon-power-netherlands",
+    to: "/stories/pon-Netherlands-CAT",
     cover: coverNL || bgImg,
     tags: ["ETL", "Go-Live", "Partnership"],
   },
@@ -52,8 +52,10 @@ const stories = [
 ];
 
 const StoryPage = () => {
+  const navigate = useNavigate();
+
+  // Scroll reveal
   useEffect(() => {
-    // Scroll reveal
     const els = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver(
       (entries) =>
@@ -66,8 +68,8 @@ const StoryPage = () => {
     return () => io.disconnect();
   }, []);
 
+  // Dark mode switcher
   useEffect(() => {
-    // Dark mode switcher
     const featured = document.querySelector(".featured-story");
     const page = document.querySelector(".stories-page");
 
@@ -88,6 +90,12 @@ const StoryPage = () => {
     return () => ioDark.disconnect();
   }, []);
 
+  // helper function for navigation + scroll
+  const goToPage = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="stories-page">
       {/* HERO */}
@@ -107,9 +115,12 @@ const StoryPage = () => {
             <a href="#stories-grid" className="btn-primary">
               Explore Stories
             </a>
-            <Link to="/contact" className="btn-ghost">
+            <button
+              onClick={() => goToPage("/contact")}
+              className="btn-ghost"
+            >
               Start Your Project
-            </Link>
+            </button>
           </div>
           <div className="hero-logos">
             <img src={poncatImg} alt="PonCAT" />
@@ -132,19 +143,23 @@ const StoryPage = () => {
             decisions, and lessons learned that make this a blueprint for
             success.
           </p>
-          <Link to="/stories/foley-cat" className="btn-primary">
+          <button
+            onClick={() => goToPage("/stories/folycat")}
+            className="btn-primary"
+          >
             Read the Story
-          </Link>
+          </button>
         </div>
       </section>
 
       {/* GRID */}
       <section id="stories-grid" className="stories-grid">
         {stories.map((s, idx) => (
-          <Link
-            to={s.to}
+          <div
             key={s.id}
             className={`story-card reveal d${(idx % 6) + 1}`}
+            onClick={() => goToPage(s.to)}
+            style={{ cursor: "pointer" }}
           >
             <div className="story-media">
               <img src={s.cover} alt={s.title} />
@@ -163,7 +178,7 @@ const StoryPage = () => {
                 ))}
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </section>
 
@@ -196,9 +211,12 @@ const StoryPage = () => {
           We design migrations that are smooth, safe, and scalable — driven by
           proven tools and trusted experts.
         </p>
-        <Link to="/contact" className="btn-primary">
+        <button
+          onClick={() => goToPage("/contact")}
+          className="btn-primary"
+        >
           Talk to Us
-        </Link>
+        </button>
       </section>
     </div>
   );

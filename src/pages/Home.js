@@ -35,6 +35,7 @@ import migrationDynamicsIcon from '../assets/logos/Dynamics365_scalable.svg';
 import upgradeIcon from '../assets/logos/Dynamics365_scalable.svg';
 import archiveIcon from '../assets/logos/Dynamics365_scalable.svg';
 import azureDevOpsIcon from '../assets/logos/icons8-azure-48.png';
+import naxt from '../assets/logos/xapt NAXT.png';
 
 // === client logos  ===
 import clientLogo1 from '../assets/clients/shoka.png';
@@ -671,6 +672,16 @@ const products = [
         name: 'Azure DevOps Toolkit for Microsoft Dynamics 365 Project Management',
         logo: azureDevOpsIcon,
         desc: 'Integrated pipelines, work item governance, and release orchestration tailored for D365.',
+      },
+    ],
+  },
+  {
+    category: 'NAXT365 Upgrade Solution',
+    items: [
+      {
+        name: 'NAXT 2012 to NAXT365 Upgrade Solution',
+        logo: naxt,
+        desc: 'Built on Microsoft Dynamics 365, is an all-in-one DMS for heavy equipment dealers and rental companies. It unifies sales, rental, service, parts, finance, CRM, and BI to streamline operations.',
       },
     ],
   },
