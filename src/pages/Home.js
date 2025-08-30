@@ -42,6 +42,7 @@ import clientLogo1 from '../assets/clients/shoka.png';
 import clientLogo2 from '../assets/clients/datamc.png';
 import clientLogo3 from '../assets/clients/microsoft.png';
 import clientLogo4 from '../assets/clients/ddptech.png';
+import News from './News/News';
 
 
 const whatsNewItems = [
@@ -1098,6 +1099,10 @@ function Home() {
         {/* Products */}
         <div ref={productsSectionRef} id="products-section">
           <ProductsSection />
+        </div>
+        {/* News */}
+        <div  id="news-section">
+          <News />
         </div>
 
         {/* Contact */}
