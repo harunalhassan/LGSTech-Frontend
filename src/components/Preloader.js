@@ -374,6 +374,7 @@ const Preloader = ({
   const [finished, setFinished] = useState(false);
   const [progress, setProgress] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
+  const [showName, setShowName] = useState(false); // control when to show company name
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -511,8 +512,18 @@ const Preloader = ({
       requestAnimationFrame(animate);
     };
   }, [logoSrc, duration, logoScale, onFinish, numSlices]);
-  const companyName = "LGSTech";
 
+  // company name + colors
+  const companyName = "LGSTECH";
+  const colors = ["#0d3b66", "#1b998b", "#76c893"]; // L=blue, G=teal, S=aqua
+
+  // delay company name rendering by 1s
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowName(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className={`preloader-wrapper ${slideOut ? "slide-out" : ""}`}>
@@ -522,19 +533,21 @@ const Preloader = ({
         width={window.innerWidth}
         height={window.innerHeight}
       />
-      {!finished && (
+      {!finished && showName && (
         <div className="loader-footer">
           {companyName.split("").map((letter, index) => (
-          <span
-          key={index}
-          className={`company-letter ${slideOut ? "hide" : ""}`}
-          style={{ animationDelay: `${index * 0.15}s` }}
-        >
-        {letter}
-        </span>
-        ))}
-      </div>
-
+            <span
+              key={index}
+              className={`company-letter ${slideOut ? "hide" : ""}`}
+              style={{
+                animationDelay: `${index * 0.15}s`,
+                color: index < 3 ? colors[index] : "#cacacab0", // first 3 letters colored, rest white
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
       )}
     </div>
   );

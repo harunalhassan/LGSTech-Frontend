@@ -1,0 +1,212 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- Main Page Container --- */
+.services-page {
+  background-color: #020617;
+  /* Dark slate background */
+  color: #f8fafc;
+  /* Light text color */
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+  /* Contains background elements */
+  margin-top: 150px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* --- Background Effects --- */
+.services-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgb(15 23 42 / 0.9), rgb(15 23 42 / 0.9), rgb(0 0 0 / 0.8));
+  z-index: 1;
+}
+
+.services-background-glow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(125% 125% at 50% 10%, #020617 40%, #0ea5e9 100%);
+  z-index: 0;
+}
+
+/* --- Content Container --- */
+.services-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1rem 6rem 1rem;
+}
+
+/* --- Header Section --- */
+.services-header {
+  text-align: center;
+  max-width: 56rem;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.services-subtitle-header {
+  color: #17baba;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.services-title-main {
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #f1f5f9;
+}
+
+.services-intro {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #94a3b8;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* --- List of Services --- */
+.services-list {
+  margin-top: 5rem;
+  display: grid;
+  gap: 4rem;
+}
+
+/* --- Individual Service Section --- */
+.service-section {
+  max-width: 56rem;
+  margin: 0 auto;
+  background-color: rgba(30, 41, 59, 0.4);
+  border-radius: 1rem;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.service-section:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.1);
+  transform: translateY(-5px);
+  
+}
+
+.service-title-item {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #f1f5f9;
+}
+
+.service-description {
+  font-size: 1.125rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+.service-details-wrapper {
+  border-top: 1px solid #475569;
+  padding-top: 1.5rem;
+}
+
+.service-details-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+.service-details-list {
+  list-style: none;
+  padding: 0;
+}
+
+.service-detail-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  color: #cbd5e1;
+  break-inside: avoid;
+}
+
+.service-detail-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #38bdf8;
+  margin-right: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* --- Scroll Fade-in Animation --- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Keyframes for Page Load --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+  .services-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .services-title-main {
+    font-size: 3rem;
+  }
+
+  .service-section {
+    padding: 2.5rem;
+  }
+
+  .service-details-list {
+    columns: 2;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-title-main {
+    font-size: 3.75rem;
+  }
+}

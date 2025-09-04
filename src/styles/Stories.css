@@ -367,7 +367,7 @@ body {
   font-size: 3.2rem;
   font-weight: 900;
   line-height: 1.1;
-  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+  background: linear-gradient(90deg, #79f8ff, #a0ff0d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 16px;

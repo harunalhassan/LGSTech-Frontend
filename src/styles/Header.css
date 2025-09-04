@@ -41,13 +41,13 @@
 .nav-container {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 6rem;
   margin-left: auto;
 }
 
 .nav-links {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .nav-links a {
@@ -275,6 +275,24 @@
   letter-spacing: 0.5px;
   white-space: nowrap;
 }
+/* Nav layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  flex: 1; /* take available horizontal space */
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  flex: 1; /* expand inside nav-container */
+  justify-content: center; 
+  margin-left: 150px;
+}
+
+.menu-icon {
+  margin-left: auto; /* push menu icon to the right */
+}
 
 /* ============================= */
 /* Responsive Header Adjustments */
@@ -357,4 +375,9 @@
   .nav-links {
     display: none;
   }
+}
+.logo-link {
+  
+  text-decoration: none; /* removes underline */
+  color: inherit; /* keeps your logo text color same */
 }

@@ -99,15 +99,17 @@ function Header() {
       } ${initialLoad ? 'entry' : ''}`}
     >
       <div className="logo" data-aos="fade-down" data-aos-duration="500">
-        <img src={logo} alt="Logo" className="logo-icon" />
-        <span className="logo-text">LGSTech</span>
+        <Link to="/" className="logo-link">
+          <img src={logo} alt="Logo" className="logo-icon" />
+          <span className="logo-text">LGSTech</span>
+        </Link>
       </div>
 
       <div className="nav-container">
         <nav className="nav-links" data-aos="fade-down" data-aos-duration="1000">
           <Link to="/">Home</Link>
-          <Link to="/" onClick={(e) => handleProductsClick(e, false)}>Products</Link>
           <Link to="/services">Services</Link>
+          <Link to="/" onClick={(e) => handleProductsClick(e, false)}>Products</Link>
 
           {/* 🔽 News Dropdown (hover-based) */}
           <div 
@@ -153,6 +155,7 @@ function Header() {
               </ul>
             )}
           </div>
+          <Link to="/contact">Contact Us</Link>
           
         </nav>
 

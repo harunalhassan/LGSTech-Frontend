@@ -1,10 +1,9 @@
 // src/components/Sidebar.js
 import React from 'react';
-import '../styles/Home.css'; // We'll define styles next
-import logo from '../assets/LGS_portrait.png'; // Replace with your actual logo
-// import { FaLinkedin, FaTwitter, FaGithub, FaArrowUp } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // <--- IMPORT THIS
+import '../styles/Home.css';
+import logo from '../assets/LGS_portrait.png';
 import ScrollToTop from './ScrollToTop';
-
 
 const Sidebar = ({ darkMode }) => {
   const scrollToTop = () => {
@@ -16,10 +15,14 @@ const Sidebar = ({ darkMode }) => {
   return (
     <div className={`sidebar ${sidebarTheme}`}>
       <div className="logo-wrapper">
-        <img src={logo} alt="Company Logo" className="logo" />
+        {/* Make the logo link to the homepage */}
+        <Link to="/">
+          <img src={logo} alt="Company Logo" className="logo" />
+        </Link>
       </div>
 
       <nav className="sidebar-links">
+        {/* External links should remain as <a> tags */}
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="sidebar-link">
           <span>LINKEDIN</span>
         </a>
@@ -29,13 +32,16 @@ const Sidebar = ({ darkMode }) => {
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="sidebar-link">
           <span>FACEBOOK</span>
         </a>
-        <a href="#cblogs" className="sidebar-link">
+
+        {/* --- THIS IS THE CHANGE --- */}
+        {/* Use Link for internal navigation to your Blogs page */}
+        <Link to="/blogs" className="sidebar-link">
           <span>BLOGS</span>
-        </a>
+        </Link>
       </nav>
 
       <div className="scroll-top" onClick={scrollToTop}>
-        <ScrollToTop/>
+        <ScrollToTop />
       </div>
     </div>
   );

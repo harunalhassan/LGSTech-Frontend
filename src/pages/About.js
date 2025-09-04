@@ -80,8 +80,8 @@ const About = () => {
         {/* Intro */}
         <p className="about-intro" >
           At LGSTech we empower businesses with strategic insights, digital
-          transformation, and Microsoft Dynamics 365 solutions. Our mission is
-          to simplify complexity, drive efficiency, and help organizations
+          transformation and Microsoft Dynamics 365 solutions. Our mission is
+          to simplify complexity, drive efficiency and help organizations
           achieve sustainable growth.
         </p>
 
@@ -91,18 +91,18 @@ const About = () => {
             <p>
               LGS Tech has been a trusted partner in helping enterprises
               navigate the complexities of ERP product evaluation, Microsoft
-              Dynamics 365 consulting, and digital transformation.
+              Dynamics 365 consulting and digital transformation.
             </p>
 
             <p>
-              With years of expertise, we have delivered scalable, secure, and
+              With years of expertise, we have delivered scalable, secure and
               innovative solutions to organizations across industries, enabling
-              them to embrace cloud adoption, harness business intelligence, and
+              them to embrace cloud adoption, harness business intelligence and
               unlock new growth opportunities.
             </p>
 
             <p>
-              Backed by a team of professionals with a proven track record, LGS
+              Backed by a team of professionals with a proven track record, LGS Tech
               is committed to simplifying complexity and empowering businesses
               to achieve operational excellence through modern technology and
               strategic insights.
@@ -140,7 +140,7 @@ const About = () => {
           <h2>Our Core Values</h2>
           <p className="values-intro">
             At LGS Tech, our values guide everything we do. They inspire us to
-            innovate, deliver excellence, and build trusted partnerships with
+            innovate, deliver excellence and build trusted partnerships with
             our clients.
           </p>
 
@@ -165,7 +165,7 @@ const About = () => {
               <img src={excellence} alt="Excellence" className="value-icon" />
               <h3>Excellence</h3>
               <p>
-                We aim for the highest standards, delivering reliable, scalable,
+                We aim for the highest standards, delivering reliable, scalable
                 and future-ready solutions.
               </p>
             </div>
@@ -203,7 +203,7 @@ const About = () => {
             <p>
               From <strong>ERP product/vendor evaluation</strong> to{" "}
               <strong> Dynamics 365 consulting, data migration, digital
-              marketing,</strong> and <strong>Azure cloud solutions</strong> —
+              marketing</strong> and <strong>Azure cloud solutions</strong> —
               we help enterprises streamline operations and unlock growth.
             </p>
             <div className="btn-group">
