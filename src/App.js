@@ -10,7 +10,6 @@ import Preloader from './components/Preloader'; // adjust path if you put it els
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Services from './pages/Services';
-import Subscription from './pages/Subscription';
 import About from './pages/About';
 // import WhyUs from './pages/WhyUs';
 import Contact from './pages/Contact';
@@ -29,6 +28,7 @@ import FoleyCAT from './pages/stories/FoleyCAT';
 import PonPowerNorwayEquipment from './pages/stories/PonPowerNorwayEquipment';
 import PonPowerNetherlands from './pages/stories/PonPowerNetherlands';
 import StoryPage from './pages/stories/StoryPage';
+import Blogs from './pages/Blogs';
 
 
 function App() {
@@ -55,7 +55,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />
-            <Route path="/subscription" element={<Subscription />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
              <Route path="/services" element={<Services />} />
@@ -67,6 +66,7 @@ function App() {
              <Route path="/stories/pon-Norway-CAT" element={<PonPowerNorwayEquipment/>} />
              <Route path="/stories/pon-Netherlands-CAT" element={<PonPowerNetherlands/>} />
              <Route path="/stories" element={<StoryPage/>} />
+             <Route path="/blogs" element={<Blogs/>} />
       
             {/*
            

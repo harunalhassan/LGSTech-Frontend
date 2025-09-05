@@ -1743,7 +1743,6 @@ products-header h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 0;
   z-index: 999;
   transition: all 0.3s ease;
@@ -1795,7 +1794,8 @@ products-header h2 {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: auto;   /* 👈 push the entire block of links to the bottom */
+  margin-bottom: 7rem; /* spacing above scroll-to-top button */
 }
 
 .sidebar-link {
@@ -1812,10 +1812,11 @@ products-header h2 {
   transition: transform 0.3s ease, letter-spacing 0.3s ease, opacity 0.3s ease;
 }
 
+/* Underline effect */
 .sidebar-link::after {
   content: "";
   position: absolute;
-  bottom: -8px; /* placed below the text */
+  bottom: -8px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -1829,15 +1830,12 @@ products-header h2 {
   transform: rotate(180deg) translateY(-4px) scale(1.1);
   letter-spacing: 0.2rem;
   opacity: 0.9;
+  color: #229c8e;
 }
 
 .sidebar-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-
-.sidebar-link:hover {
-  color: #229c8e;
 }
 
 /* Scroll-to-top */

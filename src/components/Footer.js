@@ -10,8 +10,6 @@ function Footer() {
         <img src={logo} alt="LGS Logo" className="footer-logo" />
         <p>Copyright © 2025 LGSTech.<br />All rights reserved</p>
         <div className="socials">
-          <i className="fab fa-instagram"></i>
-          <i className="fab fa-dribbble"></i>
           <i className="fab fa-linkedin"></i>
         </div>
       </div>

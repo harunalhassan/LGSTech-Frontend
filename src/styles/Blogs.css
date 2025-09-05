@@ -1,0 +1,173 @@
+/* General styling for the page container */
+.blogs-page-container {
+  background-color: #1a202c;
+  /* from bg-gray-900 */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  padding: 1rem;
+  margin-top: 150px;
+}
+
+/* The main form card */
+.form-container {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 1rem;
+  /* from rounded-2xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* from shadow-lg */
+  width: 100%;
+  max-width: 42rem;
+  /* from max-w-2xl */
+}
+
+.form-title {
+  color: white;
+  font-size: 1.875rem;
+  /* from text-3xl */
+  font-weight: 700;
+  /* from font-bold */
+  margin-bottom: 1.5rem;
+  /* from mb-6 */
+  text-align: center;
+}
+
+/* Grid layout for name and email fields */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  /* from gap-6 */
+}
+
+/* Responsive grid for larger screens */
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field-full {
+  margin-bottom: 1.5rem;
+  /* from mb-6 */
+}
+
+.attachment-field {
+  margin-bottom: 2rem;
+  /* from mb-8 */
+}
+
+.form-label {
+  display: block;
+  color: white;
+  margin-bottom: 0.5rem;
+  /* from mb-2 */
+}
+
+/* Shared styles for text input and textarea */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 0.2rem;
+  /* from px-4 py-3 */
+  background-color: #1a202c;
+  color: white;
+  border: 1px solid #4a5568;
+  /* from border-gray-700 */
+  border-radius: 0.5rem;
+  /* from rounded-lg */
+  transition: box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #38b2ac;
+  /* from focus:ring-2 focus:ring-teal-500 */
+}
+
+.form-textarea {
+  resize: vertical;
+  /* from resize-y */
+}
+
+/* Custom styling for the file input */
+.form-file-input {
+  width: 100%;
+  font-size: 0.875rem;
+  /* from text-sm */
+  color: #a0aec0;
+  /* from text-gray-400 */
+}
+
+.form-file-input::file-selector-button {
+  margin-right: 1rem;
+  /* from file:mr-4 */
+  padding: 0.5rem 1rem;
+  /* from file:py-2 file:px-4 */
+  border-radius: 0.5rem;
+  /* from file:rounded-lg */
+  border: 0;
+  font-size: 0.875rem;
+  /* from file:text-sm */
+  font-weight: 600;
+  /* from file:font-semibold */
+  background-color: #38b2ac;
+  /* from file:bg-teal-500 */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-file-input::file-selector-button:hover {
+  background-color: #319795;
+  /* from hover:file:bg-teal-600 */
+}
+
+/* Submit button styling */
+.submit-button {
+  width: 100%;
+  background-color: #38b2ac;
+  /* from bg-teal-500 */
+  color: white;
+  font-weight: 700;
+  /* from font-bold */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #319795;
+  /* from hover:bg-teal-600 */
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status message styling */
+.status-message {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.status-success {
+  color: #68d391;
+  /* from text-green-400 */
+}
+
+.status-error {
+  color: #fc8181;
+  /* from text-red-400 */
+}

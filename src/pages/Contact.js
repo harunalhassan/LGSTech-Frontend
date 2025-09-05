@@ -55,14 +55,8 @@ const Contact = () => {
         <div className="details-container" data-aos="fade-left">
           <h2>Contact Information</h2>
           <ul>
-            <li>
-              <Mail className="icon" />
-              <span>company@example.com</span>
-            </li>
-            <li>
-              <Phone className="icon" />
-              <span>+91 9876543210</span>
-            </li>
+          
+            
             <li>
               <MapPin className="icon" />
               <span>
@@ -76,8 +70,6 @@ const Contact = () => {
             <p className="follow-header">Follow us on</p>
             <div className="icon-links">
               <a href="#" aria-label="LinkedIn"><Linkedin /></a>
-              <a href="#" aria-label="Instagram"><Instagram /></a>
-              <a href="#" aria-label="Facebook"><Facebook /></a>
             </div>
           </div>
         </div>

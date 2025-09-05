@@ -189,12 +189,7 @@ function Header() {
             </li>
             <li>
               <Link to="/" onClick={(e) => handleProductsClick(e, true)}>
-                Product
-              </Link>
-            </li>
-            <li>
-              <Link to="/subscription" onClick={handleLinkClick}>
-                Subscription
+                Products
               </Link>
             </li>
             <li>

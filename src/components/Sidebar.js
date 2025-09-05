@@ -26,12 +26,7 @@ const Sidebar = ({ darkMode }) => {
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="sidebar-link">
           <span>LINKEDIN</span>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="sidebar-link">
-          <span>TWITTER</span>
-        </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="sidebar-link">
-          <span>FACEBOOK</span>
-        </a>
+       
 
         {/* --- THIS IS THE CHANGE --- */}
         {/* Use Link for internal navigation to your Blogs page */}

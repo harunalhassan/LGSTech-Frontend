@@ -72,7 +72,7 @@ const About = () => {
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          Our Vision is to Transforming Businesses with{" "}
+          Our Vision is to Transform Businesses with{" "}
           <span className="highlight_text">Dynamics 365</span> and{" "}
           <span className="highlight_text">Beyond</span>
         </h1>
