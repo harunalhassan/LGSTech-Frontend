@@ -358,7 +358,7 @@
 
 
 
-// Preloader with Spokes
+// Preloader with Shatter Effect (company name shows immediately at explosion start)
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Preloader.css";
 
@@ -366,19 +366,18 @@ const Preloader = ({
   onFinish,
   duration = 2000,
   numSlices = 60,
-  numRings = 1,
   logoSrc,
   logoScale = 0.3,
 }) => {
   const canvasRef = useRef(null);
   const [finished, setFinished] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
   const [showName, setShowName] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     canvas.width = canvas.clientWidth * dpr;
@@ -386,8 +385,11 @@ const Preloader = ({
     ctx.scale(dpr, dpr);
 
     const img = new Image();
-    img.src = logoSrc;
     img.crossOrigin = "anonymous";
+    img.src = logoSrc;
+
+    let rafId = null;
+    const timeouts = [];
 
     img.onload = () => {
       const logoW = img.width;
@@ -411,7 +413,6 @@ const Preloader = ({
       for (let i = 0; i < numSlices; i++) {
         const startAngle = (i * 2 * Math.PI) / numSlices;
         const endAngle = ((i + 1) * 2 * Math.PI) / numSlices;
-
         pieces.push({
           startAngle,
           endAngle,
@@ -422,21 +423,21 @@ const Preloader = ({
         });
       }
 
-      const logoHold = 1200;
+      const logoHold = 1200; // hold before explosion
       const startRealTime = performance.now();
       const startTime = startRealTime + logoHold;
       const endFade = startTime + duration;
+
+      let nameShown = false; // flag to avoid multiple triggers
 
       const animate = (t) => {
         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
+        // Hold before shatter
         if (t < startTime) {
-          const holdProgress = Math.min(
-            1,
-            Math.max(0, (t - startRealTime) / logoHold)
-          );
+          const holdProgress = Math.min(1, Math.max(0, (t - startRealTime) / logoHold));
           const ease = Math.sin((holdProgress * Math.PI) / 2);
           const yOffset = (1 - ease) * 100;
 
@@ -454,14 +455,18 @@ const Preloader = ({
             drawH
           );
           ctx.restore();
-          requestAnimationFrame(animate);
+
+          rafId = requestAnimationFrame(animate);
           return;
         }
 
-        const totalTime = endFade - startTime;
-        const currentProgress = Math.min(1, (t - startTime) / totalTime);
-        setProgress(Math.floor(currentProgress * 100));
+        // 🔑 As soon as explosion starts, show company name
+        if (!nameShown) {
+          setShowName(true);
+          nameShown = true;
+        }
 
+        // Shatter pieces
         const distanceMultiplier = 2.8;
         const maxScale = 4.5;
 
@@ -470,9 +475,9 @@ const Preloader = ({
 
           const timeSinceStart = t - startTime - p.delay;
           const shatterDuration = duration * 0.7;
-
           const progress = Math.min(1, timeSinceStart / shatterDuration);
           const ease = Math.sin((progress * Math.PI) / 2);
+
           const moveDist = ease * radius * distanceMultiplier;
           const scaleFactor = 1 + ease * (maxScale - 1);
           const alpha = 1 - progress;
@@ -497,26 +502,27 @@ const Preloader = ({
           ctx.restore();
         });
 
-        if (t < endFade + 100) {
-          requestAnimationFrame(animate);
+        if (t < endFade + 300) {
+          rafId = requestAnimationFrame(animate);
         } else {
           setSlideOut(true);
-
-          // ✅ Show company name AFTER explosion
-          setTimeout(() => {
-            setShowName(true);
-          }, 300); // adjust delay if needed
-
-          setTimeout(() => {
-            setFinished(true);
-            if (onFinish) onFinish();
-          }, 1000);
+          timeouts.push(
+            setTimeout(() => {
+              setFinished(true);
+              if (typeof onFinish === "function") onFinish();
+            }, 600) // slide-out duration
+          );
         }
       };
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     };
-  }, [logoSrc, duration, logoScale, onFinish, numSlices]);
+
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      timeouts.forEach((id) => clearTimeout(id));
+    };
+  }, [logoSrc, duration, logoScale, numSlices, onFinish]);
 
   const companyName = "LGSTECH";
 
@@ -530,10 +536,7 @@ const Preloader = ({
       />
       {!finished && showName && (
         <div className="loader-footer">
-          <span
-            className={`company-gradient ${slideOut ? "hide" : ""}`}
-            style={{ animationDelay: "0.2s" }}
-          >
+          <span className={`company-gradient ${slideOut ? "hide" : ""}`}>
             {companyName}
           </span>
         </div>
