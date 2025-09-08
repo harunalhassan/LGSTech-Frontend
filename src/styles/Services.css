@@ -7,7 +7,7 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  margin-top: 150px;
+  margin-top: 200px;
   font-family: "Montserrat", sans-serif;
   transition: background-color 0.8s ease, color 0.8s ease; /* smoother */
 }
@@ -139,9 +139,9 @@
 }
 
 .services-title-main {
-  /* margin-top: 1rem; */
+  margin-top: 1rem;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 750;
   letter-spacing: -0.025em;
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import '../styles/Home.css';
 import dashboard1 from '../assets/carousel3.jpg';
@@ -63,7 +63,7 @@ const whatsNewItems = [
     title: 'D365 Security Best Practices with RBSM',
     desc: 'We provide role-based access control, restricting data based on user roles like Admin, Manager, Team Lead or Guest.',
     image: dashboard1,
-    link: '#',
+    link: '/blank',
     ctaText: 'Know More',
     bgColor: '#166b61f8', // brand teal
   },
@@ -72,7 +72,7 @@ const whatsNewItems = [
     title: 'Data Encryption & Protection',
     desc: 'We provide data encryption with DLP policies, BYOK or managed keys for data at rest and TLS 1.2+ for data in transit.',
     image: dashboard2,
-    link: '#',
+    link: '/blank',
     ctaText: 'Know More',
     bgColor: '#61931cff', // green shade
   },
@@ -81,7 +81,7 @@ const whatsNewItems = [
     title: 'Data Migration Best Practices',
     desc: 'Engage stakeholders, map data accurately, transform efficiently, validate often and automate for seamless and secure migration.',
     image: dashboard3,
-    link: '#',
+    link: '/blank',
     ctaText: 'Know More',
     bgColor: '#013886ff', // bright cyan
   },
@@ -97,38 +97,35 @@ function Slide({ item, isActive }) {
   useEffect(() => {
     if (isActive && !prevActiveRef.current) {
       setPlay(false);
-      requestAnimationFrame(() => {
-        setPlay(true);
-      });
+      requestAnimationFrame(() => setPlay(true));
     }
     prevActiveRef.current = isActive;
   }, [isActive]);
 
   useEffect(() => {
     if (isActive) setPlay(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // only once
 
   return (
-    <div className={`slide ${isActive ? 'active' : ''}`}
+    <div
+      className={`slide ${isActive ? "active" : ""}`}
       aria-hidden={!isActive}
       style={{ backgroundImage: `url(${item.image})` }}
     >
       <div className="overlay" />
       <div
-        className={`slide-content ${play ? 'animate-text' : ''}`}
-        style={{ backgroundColor: item.bgColor }} // 🔥 use per-slide bg color
+        className={`slide-content ${play ? "animate-text" : ""}`}
+        style={{ backgroundColor: item.bgColor }}
       >
         <h2>{item.title}</h2>
         <p>{item.desc}</p>
-        <a href={item.link} className="slide-cta">
+        <Link to={item.link} className="slide-cta">
           {item.ctaText} →
-        </a>
+        </Link>
       </div>
     </div>
   );
 }
-
 function WhatsNewCarousel({ items, autoPlayInterval = 4000 }) {
   const total = items.length;
   const [internalIndex, setInternalIndex] = useState(1);
