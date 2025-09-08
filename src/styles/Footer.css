@@ -160,3 +160,43 @@
     width: 140px;
   }
 }
+/* Reset Link styles inside footer */
+.footer-columns ul li a {
+  text-decoration: none;   /* remove underline */
+  color: inherit;          /* use parent text color */
+  display: inline-block;   /* so hover/after works properly */
+  width: 100%;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Make sure hover matches li hover */
+.footer-columns ul li a:hover {
+  color: #07a7a4;
+  transform: scale(1.05);
+}
+
+/* underline effect for Link as before */
+.footer-columns ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.footer-columns ul li a:hover::after {
+  width: 100%;
+}
+/* Social icons */
+.footer .socials a {
+  color: inherit;           /* match footer text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .socials a:hover {
+  color: #0A66C2;           /* LinkedIn blue on hover */
+}

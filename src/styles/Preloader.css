@@ -109,3 +109,24 @@
     transform: translateY(-20px);
   }
 }
+.company-gradient {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #0d3b66, #1b998b, #76c893);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

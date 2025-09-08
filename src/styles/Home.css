@@ -82,7 +82,10 @@
   font-weight: 550;
   font-size: 1.2rem;
 }
-
+.home-subheading{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 /* ============================= */
 /* Big Carousel (What’s New)      */
 /* ============================= */
@@ -686,6 +689,22 @@
   background: rgba(31, 45, 58, 0.25);
   border-color: rgba(57, 162, 136, 0.9);
 }
+.service-contact-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 15px;
+  background: #383839c4; /* blue */
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 150px;
+}
+
+.service-contact-btn:hover {
+  background: #779606; /* darker blue */
+}
 
 /* ============================ */
 /* Services Responsive Tweaks   */
@@ -822,14 +841,14 @@
 
 .connect-with-us-section {
  
-  color: #111;
+  color: #242424;
   padding: 50px 50px;
   transition: background-color 0.6s ease;
 
   
   font-family: "Montserrat", sans-serif;
   margin-top:100px;
-  padding-top: 200px;
+  padding-top: 150px;
   
 }
 
@@ -2117,8 +2136,8 @@ html, body {
 .news-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.2rem;
+  margin-top: 1rem;
 }
 
 /* === Card Base === */
@@ -2131,6 +2150,9 @@ html, body {
   transform: translateY(40px) scale(0.95);
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
+  height: 350px !important;
+  width: 500px !important;
+ 
 }
 
 .news-card.animate {
@@ -2171,8 +2193,8 @@ html, body {
 }
 
 .news-image img {
-  width: 100%;
-  height: 280px;
+  width: 100% !important;
+  height: 250px !important;
   object-fit: cover;
   opacity: 0;
   transform: scale(1.05);
@@ -2185,12 +2207,12 @@ html, body {
 }
 
 #news-section .news-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 
 /* === Card Title === */
 #news-section .news-card-title {
-  font-size: 1.3rem;
+  font-size: 0.982rem;
   font-weight: 700;
   color: #111;
   padding: 1rem;

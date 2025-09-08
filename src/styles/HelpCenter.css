@@ -1,0 +1,71 @@
+.page.help-center {
+  font-family: "Montserrat", sans-serif;
+  padding: 3rem 6rem;
+  line-height: 1.7;
+  color: #1e293b;
+  background: #f9fafb;
+  margin-top: 140px;
+}
+
+/* Headings */
+.help-center h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+  text-align: center;
+}
+
+.help-center h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  color: #2563eb;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.help-center h3 {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Paragraphs & FAQs */
+.help-center p {
+  margin: 0.6rem 0 1.2rem;
+  color: #334155;
+}
+
+.help-center strong {
+  color: #2563eb;
+}
+
+/* Section Styling */
+.help-center section {
+  margin-bottom: 2.5rem;
+  background: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page.help-center {
+    padding: 2rem;
+    margin-top: 100px;
+  }
+
+  .help-center h1 {
+    font-size: 1.8rem;
+  }
+
+  .help-center h2 {
+    font-size: 1.4rem;
+  }
+
+  .help-center h3 {
+    font-size: 1.1rem;
+  }
+}

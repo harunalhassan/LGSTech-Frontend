@@ -1,0 +1,93 @@
+/* PrivacyPolicy.css
+   Simple, modern styling for the Privacy Policy page
+   Drop this file in src/styles/PrivacyPolicy.css
+*/
+
+/* Page container */
+.page.privacy-policy {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  background: #ffffff;
+  color: #0f1724; /* near-black for readability */
+  border-radius: 12px;
+  
+
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 160px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Headings */
+.page.privacy-policy h1 {
+  font-size: 1.75rem;
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #071133;
+}
+
+/* Last updated small text */
+.page.privacy-policy > p:first-of-type {
+  font-size: 0.95rem;
+  color: #475569;
+  margin: 0 0 18px;
+}
+
+/* Main paragraph (single-paragraph content) */
+.page.privacy-policy p:last-of-type {
+  font-size: 1rem;
+  color: #0f1724;
+  margin: 0;
+  white-space: pre-wrap; /* preserves line breaks if you later add any */
+}
+
+/* Highlight company/email anchor */
+.page.privacy-policy a,
+.page.privacy-policy a:visited {
+  color: #0b69ff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(11,105,255,0.12);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.page.privacy-policy a:hover,
+.page.privacy-policy a:focus {
+  color: #084ccf;
+  border-color: rgba(11,105,255,0.22);
+  outline: none;
+  text-decoration: none;
+}
+
+/* Reduce max-width on small screens and adjust padding */
+@media (max-width: 720px) {
+  .page.privacy-policy {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .page.privacy-policy h1 {
+    font-size: 1.4rem;
+  }
+
+  .page.privacy-policy p:last-of-type {
+    font-size: 0.98rem;
+  }
+}
+
+/* Printer friendly adjustments */
+@media print {
+  .page.privacy-policy {
+    box-shadow: none;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 12mm;
+    border-radius: 0;
+  }
+
+  a { text-decoration: underline; color: #000; }
+}

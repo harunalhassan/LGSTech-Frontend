@@ -366,7 +366,7 @@ const Preloader = ({
   onFinish,
   duration = 2000,
   numSlices = 60,
-  numRings = 1, // can increase for inner rings if needed
+  numRings = 1,
   logoSrc,
   logoScale = 0.3
 }) => {
@@ -374,7 +374,7 @@ const Preloader = ({
   const [finished, setFinished] = useState(false);
   const [progress, setProgress] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
-  const [showName, setShowName] = useState(false); // control when to show company name
+  const [showName, setShowName] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -461,7 +461,7 @@ const Preloader = ({
         setProgress(Math.floor(currentProgress * 100));
 
         const distanceMultiplier = 2.8;
-        const maxScale = 4.5; // how much the pieces grow
+        const maxScale = 4.5;
 
         pieces.forEach((p) => {
           if (t < startTime + p.delay) return;
@@ -475,7 +475,6 @@ const Preloader = ({
           const scaleFactor = 1 + ease * (maxScale - 1);
           const alpha = 1 - progress;
 
-          // compute direction
           const angle = (p.startAngle + p.endAngle) / 2;
           const dx = Math.cos(angle) * moveDist;
           const dy = Math.sin(angle) * moveDist;
@@ -486,14 +485,12 @@ const Preloader = ({
           ctx.translate(-p.cx, -p.cy);
           ctx.globalAlpha = alpha;
 
-          // clip wedge
           ctx.beginPath();
           ctx.moveTo(p.cx, p.cy);
           ctx.arc(p.cx, p.cy, p.radius, p.startAngle, p.endAngle);
           ctx.closePath();
           ctx.clip();
 
-          // draw the image inside the clipped area
           ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
           ctx.restore();
         });
@@ -513,11 +510,8 @@ const Preloader = ({
     };
   }, [logoSrc, duration, logoScale, onFinish, numSlices]);
 
-  // company name + colors
   const companyName = "LGSTECH";
-  const colors = ["#0d3b66", "#1b998b", "#76c893"]; // L=blue, G=teal, S=aqua
 
-  // delay company name rendering by 1s
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowName(true);
@@ -535,18 +529,12 @@ const Preloader = ({
       />
       {!finished && showName && (
         <div className="loader-footer">
-          {companyName.split("").map((letter, index) => (
-            <span
-              key={index}
-              className={`company-letter ${slideOut ? "hide" : ""}`}
-              style={{
-                animationDelay: `${index * 0.15}s`,
-                color: index < 3 ? colors[index] : "#cacacab0", // first 3 letters colored, rest white
-              }}
-            >
-              {letter}
-            </span>
-          ))}
+          <span
+            className={`company-gradient ${slideOut ? "hide" : ""}`}
+            style={{ animationDelay: "0.2s" }}
+          >
+            {companyName}
+          </span>
         </div>
       )}
     </div>

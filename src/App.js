@@ -29,6 +29,11 @@ import PonPowerNorwayEquipment from './pages/stories/PonPowerNorwayEquipment';
 import PonPowerNetherlands from './pages/stories/PonPowerNetherlands';
 import StoryPage from './pages/stories/StoryPage';
 import Blogs from './pages/Blogs';
+import ScrollToTop from './components/ScrollToTop';
+import HelpCenter from './pages/HelpCenter';
+import Terms from './pages/Terms';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import UnderDevelopment from './pages/UnderDevelopment';
 
 
 function App() {
@@ -52,6 +57,7 @@ function App() {
       {ready && (
         <Router>
           <Header />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />
@@ -67,6 +73,12 @@ function App() {
              <Route path="/stories/pon-Netherlands-CAT" element={<PonPowerNetherlands/>} />
              <Route path="/stories" element={<StoryPage/>} />
              <Route path="/blogs" element={<Blogs/>} />
+            <Route path="/help" element={<HelpCenter />} />
+            
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/blank" element={<UnderDevelopment />} />
+
+             
       
             {/*
            

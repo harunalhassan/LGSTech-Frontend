@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from 'react-router-dom'; // <--- FIX: This line was missing
 import "../styles/About.css";
 import innovation from "../assets/AboutLogo/innovation.png"
 import customer from "../assets/AboutLogo/customer.png"
@@ -117,7 +118,6 @@ const About = () => {
         </section>
 
         {/* Metrics Section */}
-        {/* Metrics Section */}
         <section className="metrics-section" ref={metricsRef}>
           <div className="metrics-card">
             <div className="metric">
@@ -207,10 +207,15 @@ const About = () => {
               we help enterprises streamline operations and unlock growth.
             </p>
             <div className="btn-group">
-              <button className="what-we-do-btn">Explore Our Services</button>
-              <button className="what-we-do-btn secondary-btn">
-                Connect With Us
-              </button>
+              <Link to="/services">
+                <button className="what-we-do-btn">Explore Our Services</button>
+              </Link>
+
+              <Link to="/contact">
+                <button className="what-we-do-btn secondary-btn">
+                  Connect With Us
+                </button>
+              </Link>
             </div>
           </div>
         </section>

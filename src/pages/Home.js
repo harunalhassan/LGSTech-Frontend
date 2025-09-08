@@ -54,6 +54,7 @@ import clientLogo2 from '../assets/clients/datamc.png';
 import clientLogo3 from '../assets/clients/microsoft.png';
 import clientLogo4 from '../assets/clients/ddptech.png';
 import News from './News/News';
+import BackToTopButton from '../components/BackToTopButton';
 
 
 const whatsNewItems = [
@@ -73,16 +74,16 @@ const whatsNewItems = [
     image: dashboard2,
     link: '#',
     ctaText: 'Know More',
-    bgColor: '#013886ff', // bright cyan
+    bgColor: '#61931cff', // green shade
   },
   {
     id: 3,
     title: 'Data Migration Best Practices',
-    desc: 'Engage stakeholders, map data accurately, transform efficiently, validate often and automate for safe migration.',
+    desc: 'Engage stakeholders, map data accurately, transform efficiently, validate often and automate for seamless and secure migration.',
     image: dashboard3,
     link: '#',
     ctaText: 'Know More',
-    bgColor: '#61931cff', // green shade
+    bgColor: '#013886ff', // bright cyan
   },
 ];
 
@@ -460,6 +461,7 @@ function ServiceCard({ name, index, Icon, features = [] }) {
   const ref = useRef();
   const [stage, setStage] = useState(0); // 0 initial, 1 slide, 2 reveal name
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate(); // React Router navigation
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -478,9 +480,11 @@ function ServiceCard({ name, index, Icon, features = [] }) {
 
   return (
     <div
-      className={`service-card ${stage > 0 ? 'animate' : ''} ${hovered ? 'is-hovered' : ''}`}
+      className={`service-card ${stage > 0 ? "animate" : ""} ${
+        hovered ? "is-hovered" : ""
+      }`}
       ref={ref}
-      style={{ '--delay': `${index * 100}ms` }}
+      style={{ "--delay": `${index * 100}ms` }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -494,21 +498,30 @@ function ServiceCard({ name, index, Icon, features = [] }) {
             className="service-serial"
             style={{
               opacity: stage === 2 ? 0 : 1,
-              transition: 'opacity 0.3s ease',
+              transition: "opacity 0.3s ease",
             }}
           >
-            {(index + 1).toString().padStart(2, '0')}
+            {(index + 1).toString().padStart(2, "0")}
           </div>
         </div>
+
         <div className="service-title">{name}</div>
-        <div className={`service-features ${hovered ? 'visible' : ''}`}>
+
+        <div className={`service-features ${hovered ? "visible" : ""}`}>
           <FeatureList features={features} />
         </div>
+
+        {/* --- Contact Button --- */}
+        <button
+          className="service-contact-btn"
+          onClick={() => navigate("/contact")}
+        >
+          Connect With Us
+        </button>
       </div>
     </div>
   );
 }
-
 function ServicesSection() {
   const sectionRef = useRef(null);
   const [inView, setInView] = useState(false);
@@ -595,7 +608,7 @@ function ConnectWithUsSection({ onEnterLightMode }) {
           <h2>Let’s Build Something Amazing</h2>
           <p>
             Ready to transform your business? Let’s connect and explore how we can
-            bring your ideas to life with powerful solutions.
+            bring your ideas to life with our powerful solutions.
           </p>
           <button className="connect-btn" data-aos="fade-up"
           data-aos-anchor-placement="bottom-bottom" onClick={() => navigate("/contact")}>Connect With Us</button>
@@ -704,6 +717,12 @@ const products = [
 
 // === ProductCard ===
 function ProductCard({ name, logo, desc, className = "" }) {
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    navigate("/blank"); // route path for UnderDevelopment page
+  };
+
   return (
     <div className={`product-card ${className}`}>
       <div className="product-logo-wrapper">
@@ -721,7 +740,11 @@ function ProductCard({ name, logo, desc, className = "" }) {
         <p>{desc}</p>
       </div>
       <div className="product-cta">
-        <button className="explore-btn" aria-label={`Explore ${name}`}>
+        <button
+          className="explore-btn"
+          aria-label={`Explore ${name}`}
+          onClick={handleExplore}
+        >
           <span className="label">Explore</span>
           <span className="arrow">→</span>
         </button>
@@ -1266,11 +1289,11 @@ function Home() {
         <section className="hero-section light-theme" ref={heroRef}>
           <div className={`hero-text ${heroVisible ? "animate" : ""}`}>
             <h1>
-              Seamless IT Solutions <br />
-              For <span className="highlight">Today</span> and{" "}
-              <span className="highlight">Tomorrow.</span>
+              Limitless Possibilities Through Seamless Technology for a<br />
+              <span className="highlight"> Reliable</span> and{" "}
+              <span className="highlight"> Smarter Future.</span>
             </h1>
-            <p>Revolutionize Your Business With Our Product</p>
+            <h2 className='home-subheading'>Revolutionize Your Business With Our Product</h2>
           </div>
         </section>
 
@@ -1308,7 +1331,7 @@ function Home() {
           <ClientsSection />
         </div>
 
-        <ScrollToTop />
+        <BackToTopButton />
       </div>
     </>
   );

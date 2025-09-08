@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/Services.css";
 
 // --- Data for Services ---
@@ -129,13 +130,15 @@ const services = [
 ];
 
 // --- Individual Service Section ---
-const ServiceSection = ({ service, index }) => {
+
+
+const ServiceSection = ({ service, index, refProp }) => {
   return (
-    <div
-      className="service-section fade-in-section"
-      style={{ transitionDelay: `${index * 0.15}s` }} // stagger effect
-    >
-      <h2 className="service-title-item">{service.title}</h2>
+    <div className="service-section" data-aos="fade-up" ref={refProp}>
+      <div className="service-number" data-aos="fade-right">
+        {(index + 1).toString().padStart(2, "0")}
+      </div>
+      <h2 className="service-title-item" >{service.title}</h2>
       <p className="service-description">{service.description}</p>
       <div className="service-details-wrapper">
         <h3 className="service-details-heading">Key Deliverables:</h3>
@@ -165,53 +168,73 @@ const ServiceSection = ({ service, index }) => {
   );
 };
 
-// --- Main Services Component ---
 const Services = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const firstServiceRef = useRef(null);
+
   useEffect(() => {
-    const sections = document.querySelectorAll(".fade-in-section");
-
+    let timeoutId;
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        timeoutId = setTimeout(() => setIsDarkTheme(true), 100); // small delay
+      }
+    },
+    { threshold: 0.3 }
+  );
 
-    sections.forEach((section) => observer.observe(section));
+
+    if (firstServiceRef.current) {
+      observer.observe(firstServiceRef.current);
+    }
+
+    // Keep dark theme until the top of page
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsDarkTheme(false); // back to light when at very top
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      if (firstServiceRef.current) observer.unobserve(firstServiceRef.current);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <section className="services-page">
+    <section
+      className={`services-page ${isDarkTheme ? "dark-theme" : "light-theme"}`}
+    >
       <div className="services-background-overlay"></div>
       <div className="services-background-glow"></div>
 
       <div className="services-container">
-        <div className="services-header fade-in-section">
-          <h2 className="services-subtitle-header">Our Services</h2>
-          <h1 className="services-title-main">
+        <div className="services-header">
+          <h2 className="services-subtitle-header"data-aos="fade-down">Our Services</h2>
+          <h1 className="services-title-main" data-aos="fade-up"data-aos-duration="1500">
             Empowering Businesses with Innovation and Technology
           </h1>
-          <p className="services-intro">
-            We provide a comprehensive suite of services designed to optimize your operations, drive growth and maximize your technology investments.
+          <p className="services-intro"data-aos="fade-up"data-aos-duration="2000">
+            We provide a comprehensive suite of services designed to optimize
+            your operations, drive growth and maximize your technology
+            investments.
           </p>
         </div>
 
         <div className="services-list">
           {services.map((service, index) => (
-            <ServiceSection key={index} service={service} index={index} />
+            <ServiceSection
+              key={index}
+              service={service}
+              index={index}
+              refProp={index === 0 ? firstServiceRef : null}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 };
-
 export default Services;

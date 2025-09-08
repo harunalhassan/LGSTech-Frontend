@@ -18,12 +18,7 @@ const GecolsaProject = () => {
 
     <div
         className="video-wrapper"
-        style={{
-          backgroundImage:
-            "url('https://i.ytimg.com/vi_webp/h069SjrgzyI/sddefault.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        
       >
         <iframe
           className="project-video"
