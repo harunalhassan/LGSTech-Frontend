@@ -368,7 +368,7 @@ const Preloader = ({
   numSlices = 60,
   numRings = 1,
   logoSrc,
-  logoScale = 0.3
+  logoScale = 0.3,
 }) => {
   const canvasRef = useRef(null);
   const [finished, setFinished] = useState(false);
@@ -408,7 +408,6 @@ const Preloader = ({
       const radius = drawW / 2;
 
       const pieces = [];
-
       for (let i = 0; i < numSlices; i++) {
         const startAngle = (i * 2 * Math.PI) / numSlices;
         const endAngle = ((i + 1) * 2 * Math.PI) / numSlices;
@@ -434,7 +433,10 @@ const Preloader = ({
         ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
         if (t < startTime) {
-          const holdProgress = Math.min(1, Math.max(0, (t - startRealTime) / logoHold));
+          const holdProgress = Math.min(
+            1,
+            Math.max(0, (t - startRealTime) / logoHold)
+          );
           const ease = Math.sin((holdProgress * Math.PI) / 2);
           const yOffset = (1 - ease) * 100;
 
@@ -499,6 +501,12 @@ const Preloader = ({
           requestAnimationFrame(animate);
         } else {
           setSlideOut(true);
+
+          // ✅ Show company name AFTER explosion
+          setTimeout(() => {
+            setShowName(true);
+          }, 300); // adjust delay if needed
+
           setTimeout(() => {
             setFinished(true);
             if (onFinish) onFinish();
@@ -511,13 +519,6 @@ const Preloader = ({
   }, [logoSrc, duration, logoScale, onFinish, numSlices]);
 
   const companyName = "LGSTECH";
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowName(true);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className={`preloader-wrapper ${slideOut ? "slide-out" : ""}`}>
@@ -542,3 +543,4 @@ const Preloader = ({
 };
 
 export default Preloader;
+
