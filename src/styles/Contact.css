@@ -157,6 +157,7 @@
   font-size: 1rem;
   background: transparent;
   transition: border 0.3s ease;
+  color: white;
 }
 
 .input-group input:focus,
@@ -271,4 +272,90 @@
 .dark-theme {
   background-color: #111;
   color: #f1f1f1;
+}
+/* =========================
+   Notification Bar
+========================= */
+.notification-bar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  animation: slideIn 0.4s ease;
+  padding: 1rem;
+  padding-right: 2rem;
+  /* width: 100%; */
+  max-width: 30rem;
+}
+
+.notification-bar.success {
+  background: #1f2937;
+  color: #ffffff;
+  border-left: 6px solid #16a34a;
+  border: 1px solid #374151;
+}
+
+.notification-bar.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 6px solid #dc2626;
+}
+
+.notification-content {
+  position: relative;
+  display: flex;
+  align-items: flex-start; /* keep icon aligned with text top */
+  gap: 1rem;
+  padding: 1rem;
+  padding-right: 2rem;
+}
+
+/* ✅ Text wrapper (title + message stacked) */
+.notification-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title on top */
+.notification-title {
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+/* Message below */
+.notification-message {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.icon-success {
+  color: #22c55e;
+  margin: 0;
+}
+
+.icon-error {
+  color: #dc2626;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

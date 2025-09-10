@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from "lucide-react";
+import { MapPin, Linkedin, CheckCircle, XCircle, X } from "lucide-react";
 import "../styles/Contact.css";
+
 
 const Contact = () => {
   const [darkTheme, setDarkTheme] = useState(false);
+
+  // Form state
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  // ✅ Notification state
+  const [notification, setNotification] = useState({
+    show: false,
+    message: "",
+    isSuccess: false,
+  });
 
   // ✅ Force scroll to top when component mounts
   useEffect(() => {
@@ -16,7 +26,7 @@ const Contact = () => {
       if (window.scrollY === 0) {
         setDarkTheme(false); // ☀️ Light at top
       } else {
-        setDarkTheme(true);  // 🌙 Dark when scrolled
+        setDarkTheme(true); // 🌙 Dark when scrolled
       }
     };
 
@@ -26,8 +36,75 @@ const Contact = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  // ✅ Show notification
+  const showNotification = (message, isSuccess) => {
+    setNotification({ show: true, message, isSuccess });
+    setTimeout(() => {
+      setNotification((prev) => ({ ...prev, show: false }));
+    }, 4000);
+  };
+  const closeNotification = () => {
+    setNotification({ ...notification, show: false });
+  };
+  // ✅ Handle form submit
+   // ✅ Handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:5000/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        showNotification(
+          " Your message has been submitted successfully. We will be in touch soon!",
+          true
+        );
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        showNotification(data.error || " Something went wrong. Try again.", false);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      showNotification(" Oops! Something went wrong. Please try again later.", false);
+    }
+  };
+
+
   return (
     <section className={`contact-section ${darkTheme ? "dark-theme" : "light-theme"}`}>
+      {/* ✅ Notification Bar */}
+    {notification.show && (
+      <div className={`notification-bar ${notification.isSuccess ? "success" : "error"}`}>
+        <div className="notification-content">
+          {notification.isSuccess ? (
+            <CheckCircle size={20} className="icon-success" />
+          ) : (
+            <XCircle size={20} className="icon-error" />
+          )}
+
+          {/* ✅ Wrap title + message */}
+          <div className="notification-text">
+            <p className="notification-title">
+              {notification.isSuccess ? "Success!" : "Oops!"}
+            </p>
+            <p className="notification-message">{notification.message}</p>
+          </div>
+        </div>
+
+        <button onClick={closeNotification} className="close-btn">
+          <X size={16} />
+        </button>
+      </div>
+    )}
       {/* Heading */}
       <h1 className="contact-title" data-aos="fade-up">Let’s Connect</h1>
       <p className="contact-subtitle" data-aos="fade-up">
@@ -55,8 +132,6 @@ const Contact = () => {
         <div className="details-container" data-aos="fade-left">
           <h2>Contact Information</h2>
           <ul>
-          
-            
             <li>
               <MapPin className="icon" />
               <span>
@@ -78,23 +153,41 @@ const Contact = () => {
       {/* Contact Form */}
       <div className="contact-card form-card" data-aos="fade-up" data-aos-duration="1000">
         <h2>Send a Message</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="text" required />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
             <label>Your Name</label>
           </div>
 
           <div className="input-group">
-            <input type="email" required />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
             <label>Your Email</label>
           </div>
 
           <div className="input-group">
-            <textarea rows="5" required></textarea>
+            <textarea
+              rows="5"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
             <label>Your Message</label>
           </div>
 
-          <button className="submit-btn">Send Message</button>
+          <button type="submit" className="submit-btn">Send Message</button>
         </form>
       </div>
     </section>

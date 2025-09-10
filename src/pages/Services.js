@@ -180,7 +180,7 @@ const Services = () => {
         timeoutId = setTimeout(() => setIsDarkTheme(true), 100); // small delay
       }
     },
-    { threshold: 0.3 }
+    { threshold: 0.6 }
   );
 
 

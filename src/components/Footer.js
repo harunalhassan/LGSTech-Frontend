@@ -1,16 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';  // Import Link
-import '../styles/Footer.css';
-import logo from '../assets/lgslogo.png';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/Footer.css";
+import logo from "../assets/lgslogo.png";
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async () => {
+    if (!email) {
+      setMessage("Please enter your email.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      setMessage(data.success || data.error);
+      setEmail("");
+    } catch (error) {
+      setMessage("Failed to subscribe. Try again later.");
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-left">
         <img src={logo} alt="LGS Logo" className="footer-logo" />
-        <p>Copyright © 2025 LGSTech.<br />All rights reserved</p>
+        <p>
+          Copyright © 2025 LGSTech.
+          <br />
+          All rights reserved
+        </p>
         <div className="socials">
-          <a href="https://www.linkedin.com/company/lgstech" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/company/lgstech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-linkedin"></i>
           </a>
         </div>
@@ -32,15 +64,20 @@ function Footer() {
           <h4>Support</h4>
           <ul>
             <li><Link to="/help">Help center</Link></li>
-            {/* <li><Link to="/terms">Terms of service</Link></li> */}
             <li><Link to="/privacy">Privacy policy</Link></li>
           </ul>
         </div>
 
         <div className="column subscribe">
           <h4>Stay up to date</h4>
-          <input type="email" placeholder="Your email address" />
-          <button>&#10148;</button>
+          <input
+            type="email"
+            placeholder="Your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={handleSubscribe}>&#10148;</button>
+          {message && <p>{message}</p>}
         </div>
       </div>
     </footer>
