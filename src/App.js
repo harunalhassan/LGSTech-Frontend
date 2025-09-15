@@ -34,6 +34,7 @@ import HelpCenter from './pages/HelpCenter';
 import Terms from './pages/Terms';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import UnderDevelopment from './pages/UnderDevelopment';
+import Unsubscribe from './pages/Unsubscribe';
 
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
             
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/blank" element={<UnderDevelopment />} />
+            <Route path="/unsubscribe" element={<Unsubscribe />} />
 
              
       

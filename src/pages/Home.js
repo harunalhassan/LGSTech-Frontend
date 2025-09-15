@@ -69,8 +69,8 @@ const whatsNewItems = [
   },
   {
     id: 2,
-    title: 'Data Encryption & Protection',
-    desc: 'We provide data encryption with DLP policies, BYOK or managed keys for data at rest and TLS 1.2+ for data in transit.',
+    title: 'Microsoft Dynamics 365 Implementation Services',
+    desc: 'From project initiation to deployment, we handle end-to-end D365 implementations. Our services cover configuration, integration, ISV management, testing, training and change management to ensure smooth rollouts.',
     image: dashboard2,
     link: '/blank',
     ctaText: 'Know More',
