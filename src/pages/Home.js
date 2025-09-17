@@ -63,7 +63,7 @@ const whatsNewItems = [
     title: 'D365 Security Best Practices with RBSM',
     desc: 'We provide role-based access control, restricting data based on user roles like Admin, Manager, Team Lead or Guest.',
     image: dashboard1,
-    link: '/blank',
+    link: '/d365-security',
     ctaText: 'Know More',
     bgColor: '#166b61f8', // brand teal
   },

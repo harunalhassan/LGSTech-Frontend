@@ -35,6 +35,7 @@ import Terms from './pages/Terms';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import UnderDevelopment from './pages/UnderDevelopment';
 import Unsubscribe from './pages/Unsubscribe';
+import D365SecurityPage from './pages/whatsnew/D365Security';
 
 
 function App() {
@@ -47,15 +48,14 @@ function App() {
 
   return (
     <>
-      {!ready && (
+      
         <Preloader
           logoSrc={logo}
-          duration={2500}
           pieceSize={18}
-          onFinish={handleFinish}
+          
         />
-      )}
-      {ready && (
+     
+      
         <Router>
           <Header />
           <ScrollToTop />
@@ -79,6 +79,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/blank" element={<UnderDevelopment />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
+            <Route path="/d365-security" element={<D365SecurityPage />} />
 
              
       
@@ -94,7 +95,7 @@ function App() {
           </Routes>
           <Footer />
         </Router>
-      )}
+      
     </>
   );
 }
