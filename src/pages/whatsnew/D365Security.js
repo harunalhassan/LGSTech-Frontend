@@ -248,21 +248,7 @@ export default function D365SecurityPage() {
             color: #4B5563;
         }
 
-        /* --- Footer --- */
-        .footer {
-            background-color: #1F2937;
-            color: white;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            text-align: center;
-        }
-
-        .footer-subtitle {
-            color: #9CA3AF;
-            margin-top: 0.5rem;
-        }
-
+       
         /* --- Responsive Adjustments --- */
         @media (min-width: 640px) {
             .practice-item {

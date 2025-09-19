@@ -72,7 +72,7 @@ const whatsNewItems = [
     title: 'Microsoft Dynamics 365 Implementation Services',
     desc: 'From project initiation to deployment, we handle end-to-end D365 implementations. Our services cover configuration, integration, ISV management, testing, training and change management to ensure smooth rollouts.',
     image: dashboard2,
-    link: '/blank',
+    link: '/d365-implementation-services',
     ctaText: 'Know More',
     bgColor: '#61931cff', // green shade
   },
@@ -81,7 +81,7 @@ const whatsNewItems = [
     title: 'Data Migration Best Practices',
     desc: 'Engage stakeholders, map data accurately, transform efficiently, validate often and automate for seamless and secure migration.',
     image: dashboard3,
-    link: '/blank',
+    link: '/data-migration-best-practices',
     ctaText: 'Know More',
     bgColor: '#013886ff', // bright cyan
   },

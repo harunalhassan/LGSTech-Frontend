@@ -36,6 +36,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import UnderDevelopment from './pages/UnderDevelopment';
 import Unsubscribe from './pages/Unsubscribe';
 import D365SecurityPage from './pages/whatsnew/D365Security';
+import DatamigrationBest from './pages/whatsnew/DatamigrationBest';
+import Dynamics365Implementation from './pages/whatsnew/Dynamics365Implementation';
 
 
 function App() {
@@ -80,6 +82,8 @@ function App() {
             <Route path="/blank" element={<UnderDevelopment />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/d365-security" element={<D365SecurityPage />} />
+            <Route path="/data-migration-best-practices" element={<DatamigrationBest />} />
+            <Route path="/d365-implementation-services" element={<Dynamics365Implementation />} />
 
              
       
