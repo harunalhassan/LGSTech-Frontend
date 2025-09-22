@@ -108,7 +108,7 @@ const StoryPage = () => {
           <h1 className="stories-hero-title">Our Stories of Success</h1>
           <p className="stories-hero-sub">
             Real projects. Real impact. Dive into transformation journeys powered
-            by <span className="brand-accent">DDPTech</span>, our partners, and
+            by <span className="brand-accent">LGS</span>, our partners, and
             our clients.
           </p>
           <div className="hero-cta">

@@ -48,7 +48,7 @@ const PonPowerNorwayEquipment = () => {
       </p>
 
       <p className="project-text">
-        This project is a testament to the capabilities of DDPTech and XAPT in
+        This project is a testament to the capabilities of LGS, DDPTech and XAPT in
         delivering top-notch data migration and ERP solutions to businesses
         worldwide. We look forward to continuing this successful partnership,
         driving innovation and providing exceptional results for our clients in

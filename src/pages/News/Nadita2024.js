@@ -7,12 +7,17 @@ const Nadita2024 = () => {
   return (
     <div className="nadita-container">
       <h1 className="nadita-title"data-aos="fade-down">
-        DDPTech supporting the Caterpillar Community at NADITA 2024
+        LGS Partnering with DDPTech supporting the Caterpillar Community at NADITA 2024
       </h1>
 
       <div className="nadita-header">
         <p className="nadita-text">
-          We are pleased to share our experiences from the NADITA 2024 conference, where DDPTech had a significant presence with a dedicated stand at the expo. This year, three of our team members representing DDPTech attended, further establishing our role in the data migration domain. Our ongoing collaboration with XAPT  and members of the Caterpillar community highlights our commitment to guiding businesses through their data migration journey and ensuring a seamless transition to XAPT's robust NAXT365 solution.
+          We are pleased to share our experiences from the NADITA 2024 conference, where LGS along
+          with DDPTech had a significant presence with a dedicated stand at the expo. This year, three of
+          our team members representing LGS &amp; DDPTech attended, further establishing our role in the
+          data migration domain. Our ongoing collaboration with XAPT and members of the Caterpillar
+          community highlights our commitment to guiding businesses through their data migration
+          journey and ensuring a seamless transition to XAPT’s robust NAXT365 solution.
         </p>
 
         <div className="nadita-logo" data-aos="fade-left">
@@ -45,9 +50,9 @@ const Nadita2024 = () => {
         <p>
           Our expo stand allowed us to engage directly with attendees, showcasing our advancements, and demonstrating the benefits of our data migration solutions. Interacting face-to-face with industry peers and potential clients provided valuable insights into the current needs and challenges of businesses.
         </p>
-        <div className="nadita-image">
+        {/* <div className="nadita-image">
           <img src={expoImage} alt="DDPTech Expo Booth at NADITA 2023" />
-        </div>
+        </div> */}
       </div>
 
       <div className="nadita-section">

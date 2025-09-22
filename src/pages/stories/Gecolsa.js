@@ -9,11 +9,11 @@ const GecolsaProject = () => {
       <h1 className="project-title"data-aos="fade-down"data-aos-duration="1300">Gecolsa – Project Completion!</h1>
 
       <p className="project-text">
-        We are thrilled to announce the successful completion of our first South American CAT dealership data migration project. Despite the challenging timeframes, our team at DDPTech, in collaboration with XAPT, worked diligently to achieve a seamless migration using our DM REVOLVE toolsets and Microsoft Dynamics load automation technologies. Within just four months, we managed to migrate a comprehensive NAXT365 ERP consisting of 98 data objects across four legal entities.
+        We are thrilled to announce the successful completion of our first South American CAT dealership data migration project. Despite the challenging timeframes, our team at LGS partnering with DDPTech, in collaboration with XAPT, worked diligently to achieve a seamless migration using our DM REVOLVE toolsets and Microsoft Dynamics load automation technologies. Within just four months, we managed to migrate a comprehensive NAXT365 ERP consisting of 98 data objects across four legal entities.
       </p>
 
       <p className="project-text">
-        The final objects went live in February 2022, showcasing the remarkable results that teamwork and collaboration can accomplish. We are grateful to XAPT for entrusting us with this project and extend our heartfelt appreciation to our dedicated team members from DDPTech, XAPT, and Gecolsa for their expertise, commitment, and unwavering determination.
+        The final objects went live in February 2022, showcasing the remarkable results that teamwork and collaboration can accomplish. We are grateful to XAPT for entrusting us with this project and extend our heartfelt appreciation to our dedicated team members from LGS, DDPTech, XAPT, and Gecolsa for their expertise, commitment, and unwavering determination.
       </p>
 
     <div
@@ -31,7 +31,8 @@ const GecolsaProject = () => {
       </div>
 
       <p className="project-text">
-        This project’s success was made possible by the powerful combination of DDPTech’s DM REVOLVE toolsets and cutting-edge D365 load automation tools. Congratulations to everyone involved in this outstanding achievement that demonstrates the power of collaboration and innovative solutions!
+        This project’s success was made possible by the LGS team member’s expertise in combining
+        of  Data Migration toolsets and cutting-edge D365 load automation tools. Congratulations to everyone involved in this outstanding achievement that demonstrates the power of collaboration and innovative solutions!
       </p>
 
       <div className="logo-section">

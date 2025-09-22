@@ -48,9 +48,9 @@ const Nadita2023 = () => {
           allowed us to engage in meaningful dialogue, share best practices, and
           explore new strategies for the future.
         </p>
-        <div className="nadita-image">
+        {/* <div className="nadita-image">
           <img src={expoImage} alt="DDPTech Expo Booth at NADITA 2023" />
-        </div>
+        </div> */}
       </div>
 
       <div className="nadita-section">

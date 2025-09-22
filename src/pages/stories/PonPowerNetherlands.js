@@ -54,7 +54,7 @@ const PonPowerNetherlands = () => {
 
         <p className="project-text">
           We are grateful to the project sponsor and also the data specialists
-          from Pon, for their unwavering trust in DDPTech, our methodologies,
+          from Pon, for their unwavering trust in LGS, our methodologies,
           personnel, tools, and relentless support and collaboration with the
           Pon business, even during challenging times. This significantly
           contributed to these impressive results, from the project's inception
@@ -63,7 +63,7 @@ const PonPowerNetherlands = () => {
 
         <p className="project-text">
           Thank you for the efforts of everyone involved in this successful
-          endeavor, this is a significant moment in the history of Pon, DDPTech,
+          endeavor, this is a significant moment in the history of Pon, LGS, DDPTech,
           and XAPT.
         </p>
       </div>

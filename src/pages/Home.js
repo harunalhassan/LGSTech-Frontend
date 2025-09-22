@@ -1315,7 +1315,7 @@ function Home() {
         </div>
         {/* News */}
         <div  id="news-section">
-          <News />
+          {/* <News /> */}
         </div>
 
         {/* Contact */}
