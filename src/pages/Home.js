@@ -664,22 +664,28 @@ const products = [
         name: 'Microsoft Dynamics 365 Data Migration Solution',
         logo: migrationDynamicsIcon,
         desc: 'End-to-end migration to Dynamics 365 with validation, rollback and automation.',
+        route: '/d365-data-migration-product',  // ✅ new
       },
       {
         name: 'AX2012 to Dynamics 365 Upgrade Solution',
         logo: upgradeIcon,
         desc: 'Smooth upgrade path from AX2012 to Dynamics 365 with data fidelity and minimal downtime.',
+        route: '/AX2012-upgrade-product',  // ✅ new
+
+       
       },
       {
         name: 'Legacy Application to Fabric Data Archive Solution',
         logo: archiveIcon,
         desc: 'Archive legacy datasets into Microsoft Fabric with searchable, compressed retention.',
+        route: '/Legacy-application-product',  // ✅ new
       },
       
       {
         name: 'NAXT 2012 to NAXT365 Upgrade Solution',
         logo: migrationDynamicsIcon,
         desc: 'Built on Microsoft Dynamics 365, is an all-in-one DMS for heavy equipment dealers and rental companies. It unifies sales, rental, service, parts, finance, CRM and BI to streamline operations.',
+        route: '/NAXT2012-to-NAXT365-product',  // ✅ new
       },
     ],
   },
@@ -690,11 +696,14 @@ const products = [
         name: 'Timesheet Management Solution',
         logo: timesheetIcon,
         desc: 'Track time seamlessly, approve workflows and integrate with project billing.',
+        route: '/timesheeet-management-product',  // ✅ new
+
       },
       {
         name: 'Fixed Assets Stocktake Solution',
         logo: fixedAssetsIcon,
         desc: 'Audit, reconcile, and monitor fixed assets with ease using mobile-assisted inventory.',
+        route: '/fixed-assests-stock-product',  // ✅ new
       },
     ],
   },
@@ -706,6 +715,7 @@ const products = [
         name: 'Azure DevOps Toolkit for Microsoft Dynamics 365 Project Management',
         logo: azureDevOpsIcon,
         desc: 'Integrated pipelines, work item governance and release orchestration tailored for D365.',
+        route: '/Azure-devops-project-management-product',  // ✅ new
       },
     ],
   },
@@ -713,11 +723,12 @@ const products = [
 ];
 
 // === ProductCard ===
-function ProductCard({ name, logo, desc, className = "" }) {
+function ProductCard({ name, logo, desc, route, className = "" }) {
   const navigate = useNavigate();
 
   const handleExplore = () => {
-    navigate("/blank"); // route path for UnderDevelopment page
+    navigate(route);
+   
   };
 
   return (
@@ -749,6 +760,7 @@ function ProductCard({ name, logo, desc, className = "" }) {
     </div>
   );
 }
+
 
 // === ProductsSection ===
 function ProductsSection({ onVisibleDarkMode }) {
@@ -853,6 +865,7 @@ function ProductsSection({ onVisibleDarkMode }) {
                   name={prod.name}
                   logo={prod.logo}
                   desc={prod.desc}
+                  route={prod.route}   // ✅ pass route
                   className="active-card"
                   data-aos="fade-up"
                 />
@@ -864,6 +877,7 @@ function ProductsSection({ onVisibleDarkMode }) {
                   name={prod.name}
                   logo={prod.logo}
                   desc={prod.desc}
+                  route={prod.route}   // ✅ pass route
                   className="active-card"
                   data-aos="fade-up"
                 />

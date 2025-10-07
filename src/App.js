@@ -38,6 +38,13 @@ import Unsubscribe from './pages/Unsubscribe';
 import D365SecurityPage from './pages/whatsnew/D365Security';
 import DatamigrationBest from './pages/whatsnew/DatamigrationBest';
 import Dynamics365Implementation from './pages/whatsnew/Dynamics365Implementation';
+import D365DataMigration from './pages/products/D365DataMigration';
+import NAXT2012toNAXT365Solution from './pages/products/NAXT2012toNAXT365Solution';
+import LegacyApplication from './pages/products/LegacyApplication';
+import AX2012UpgradeSolution from './pages/products/AX2012UpgradeSolution';
+import TimesheetManagement from './pages/products/TimesheetManagement';
+import FixedAssets from './pages/products/FixedAssets';
+import AzureDevOps from './pages/products/AzureDevOps';
 
 
 function App() {
@@ -84,6 +91,13 @@ function App() {
             <Route path="/d365-security" element={<D365SecurityPage />} />
             <Route path="/data-migration-best-practices" element={<DatamigrationBest />} />
             <Route path="/d365-implementation-services" element={<Dynamics365Implementation />} />
+            <Route path="/d365-data-migration-product" element={<D365DataMigration/>} />
+            <Route path="/NAXT2012-to-NAXT365-product" element={<NAXT2012toNAXT365Solution/>} />
+            <Route path="/Legacy-application-product" element={<LegacyApplication/>} />
+            <Route path="/AX2012-upgrade-product" element={<AX2012UpgradeSolution/>} />
+            <Route path="/timesheeet-management-product" element={<TimesheetManagement/>} />
+            <Route path="/fixed-assests-stock-product" element={<FixedAssets/>} />
+            <Route path="/Azure-devops-project-management-product" element={<AzureDevOps/>} />
 
              
       
