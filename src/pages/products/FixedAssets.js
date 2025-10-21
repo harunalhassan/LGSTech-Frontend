@@ -1,31 +1,38 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
+import {
+  FaFileInvoiceDollar,
+  FaMobileAlt,
+  FaFileAlt,
+  FaLink,
+} from "react-icons/fa"; // icons
 import logo from "../../assets/logos/powerapp.png"; // replace with actual logo
 
 const FixedAssets = () => {
   const navigate = useNavigate();
+  const iconColor = "#d4ad00ff";
 
   const features = [
     {
       title: "Automated Auditing",
       desc: "Perform asset audits efficiently using barcode or QR code scanning.",
-      icon: "🧾",
+      icon: <FaFileInvoiceDollar style={{ color: iconColor }} />,
     },
     {
       title: "Mobile Inventory Tracking",
       desc: "Easily update, verify, and reconcile assets using mobile devices.",
-      icon: "📱",
+      icon: <FaMobileAlt style={{ color: iconColor }} />,
     },
     {
       title: "Reconciliation Reports",
       desc: "Generate instant variance reports for missing or moved assets.",
-      icon: "📑",
+      icon: <FaFileAlt style={{ color: iconColor }} />,
     },
     {
       title: "Integration Ready",
       desc: "Seamlessly connect with ERP systems for real-time asset updates.",
-      icon: "🔗",
+      icon: <FaLink style={{ color: iconColor }} />,
     },
   ];
 
@@ -41,13 +48,19 @@ const FixedAssets = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right"data-aos="fade-left"data-aos-duration="1000">
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <img
             src={logo}
             alt="PowerApps Logo"
@@ -74,10 +87,7 @@ const FixedAssets = () => {
       <section className="productDetails-cta">
         <h2>Ready to Automate Asset Tracking?</h2>
         <p>Achieve faster, more accurate stocktakes with mobile automation.</p>
-        <button
-          className="get-product-btn"
-          onClick={() => navigate("/contact")}
-        >
+        <button className="get-product-btn" onClick={() => navigate("/contact")}>
           Get the Product
         </button>
       </section>

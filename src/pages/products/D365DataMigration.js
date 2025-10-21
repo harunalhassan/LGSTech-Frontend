@@ -1,7 +1,8 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logos/dynamic365.png"; // replace with your logo
+import logo from "../../assets/logos/dynamic365.png";
+import { Cpu, RotateCcw, BarChart3, Database } from "lucide-react"; // ✅ professional icons
 
 const D365DataMigration = () => {
   const navigate = useNavigate();
@@ -10,22 +11,22 @@ const D365DataMigration = () => {
     {
       title: "End-to-End Automation",
       desc: "Complete migration automation with pre-validation and post-migration testing.",
-      icon: "⚙️",
+      icon: <Cpu size={36} color="#d4ad00ff" />, // Microsoft blue tone
     },
     {
       title: "Rollback & Recovery",
       desc: "Secure rollback and instant recovery in case of migration issues.",
-      icon: "🔄",
+      icon: <RotateCcw size={36} color="#d4ad00ff" />,
     },
     {
       title: "Real-Time Validation",
       desc: "Continuous monitoring and validation ensure high data accuracy.",
-      icon: "📊",
+      icon: <BarChart3 size={36} color="#d4ad00ff" />,
     },
     {
       title: "Complex Data Support",
       desc: "Handles large data models, hierarchies, and entity relationships effortlessly.",
-      icon: "💾",
+      icon: <Database size={36} color="#d4ad00ff" />,
     },
   ];
 
@@ -36,28 +37,31 @@ const D365DataMigration = () => {
         <div className="hero-content-left">
           <h1>Microsoft Dynamics 365 Data Migration Solution</h1>
           <p>
-            Move to the cloud with confidence. Experience seamless migration,
-            validation, and automation with Dynamics 365.
+            Experience seamless data migration,
+            validation and automation with Dynamics 365. Move to the cloud with confidence. 
           </p>
-          <button className="get-product-btn hero-btn" onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900">
+          <button
+            className="get-product-btn hero-btn"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
+          >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right" data-aos="fade-left"data-aos-duration="1000">
-          <img src={logo} alt="Dynamics 365 Logo" className="product-logo-extra-large" />
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          <img
+            src={logo}
+            alt="Dynamics 365 Logo"
+            className="product-logo-extra-large"
+          />
         </div>
       </section>
-
-      {/* Overview Section
-      <section className="product-overview">
-        <h2>Why Choose Our Migration Solution?</h2>
-        <p>
-          Our <strong>Microsoft Dynamics 365 Data Migration Solution</strong> ensures a smooth, secure, and
-          automated transition to Dynamics 365. It maintains data fidelity while minimizing downtime through
-          advanced validation and rollback support.
-        </p>
-      </section> */}
 
       {/* Key Features Section */}
       <section className="product-features">
@@ -76,7 +80,10 @@ const D365DataMigration = () => {
       {/* CTA Section */}
       <section className="productDetails-cta">
         <h2>Ready to Migrate with Confidence?</h2>
-        <p>Let’s streamline your Dynamics 365 migration with automation and reliability.</p>
+        <p>
+          Let’s streamline your Dynamics 365 migration with automation and
+          reliability.
+        </p>
         <button className="get-product-btn" onClick={() => navigate("/contact")}>
           Get the Product
         </button>

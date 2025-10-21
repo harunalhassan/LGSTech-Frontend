@@ -101,7 +101,7 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(101, 95, 95, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 30px 20px;
@@ -114,7 +114,7 @@
 .feature-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 0 25px rgba(0, 180, 216, 0.3);
-  border-color: rgba(0, 180, 216, 0.6);
+  border-color: rgba(34, 255, 237, 0.6);
 }
 
 .feature-icon {
@@ -124,12 +124,12 @@
 
 .feature-card h3 {
   font-size: 1.2rem;
-  color: #00b4d8;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .feature-card p {
-  color: #cfcfcf;
+  color: #d5d5d5;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -251,4 +251,11 @@
     width: 240px;
     transform: scale(1);
   }
+}
+
+
+.feature-icon {
+  font-size: 2rem; /* Adjust the size as needed */
+  color: #ffd105;   /* A professional blue, often associated with Microsoft */
+  margin-bottom: 1rem;
 }

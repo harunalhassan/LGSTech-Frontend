@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import "../styles/Services.css";
+import { useNavigate } from "react-router-dom";
 
 // --- Data for Services ---
 const services = [
@@ -133,12 +134,19 @@ const services = [
 
 
 const ServiceSection = ({ service, index, refProp }) => {
+
+  const navigate = useNavigate();
+
+  const handleGetService = () => {
+    navigate("/contact");
+  };
+
   return (
     <div className="service-section" data-aos="fade-up" ref={refProp}>
       <div className="service-number" data-aos="fade-right">
         {(index + 1).toString().padStart(2, "0")}
       </div>
-      <h2 className="service-title-item" >{service.title}</h2>
+      <h2 className="service-title-item">{service.title}</h2>
       <p className="service-description">{service.description}</p>
       <div className="service-details-wrapper">
         <h3 className="service-details-heading">Key Deliverables:</h3>
@@ -164,9 +172,20 @@ const ServiceSection = ({ service, index, refProp }) => {
           ))}
         </ul>
       </div>
+
+      {/* --- Add "Get the Service" button here --- */}
+      <div className="service-button-wrapper">
+        <button
+          className="get-service-button"
+          onClick={handleGetService}
+        >
+          Get the Service
+        </button>
+      </div>
     </div>
   );
 };
+
 
 const Services = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);

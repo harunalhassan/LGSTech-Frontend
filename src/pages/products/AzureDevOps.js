@@ -1,31 +1,34 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
+import { FaProjectDiagram, FaClipboardList, FaCogs, FaChartLine } from "react-icons/fa"; // Icons
 import azureLogo from "../../assets/logos/icons8-azure-48.png"; // replace with your Azure logo
 
 const AzureDevOps = () => {
   const navigate = useNavigate();
 
+  const iconColor = "#d4ad00ff";
+
   const features = [
     {
       title: "Automated Pipelines",
       desc: "Pre-built CI/CD templates optimized for Dynamics 365 development and deployment.",
-      icon: "🚀",
+      icon: <FaProjectDiagram style={{ color: iconColor }} />,
     },
     {
       title: "Work Item Governance",
       desc: "Seamlessly link Azure Boards with D365 projects for transparent tracking and collaboration.",
-      icon: "📋",
+      icon: <FaClipboardList style={{ color: iconColor }} />,
     },
     {
       title: "Release Orchestration",
       desc: "Streamlined multi-environment deployment with approval workflows and rollback safety.",
-      icon: "⚙️",
+      icon: <FaCogs style={{ color: iconColor }} />,
     },
     {
       title: "Performance Insights",
       desc: "Monitor project KPIs, build health, and pipeline metrics through real-time dashboards.",
-      icon: "📊",
+      icon: <FaChartLine style={{ color: iconColor }} />,
     },
   ];
 
@@ -41,13 +44,15 @@ const AzureDevOps = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right" data-aos="fade-left"data-aos-duration="1000">
+        <div className="hero-logo-right" data-aos="fade-left" data-aos-duration="1000">
           <img
             src={azureLogo}
             alt="Azure DevOps Logo"

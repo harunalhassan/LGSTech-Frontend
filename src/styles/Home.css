@@ -643,7 +643,7 @@
   position: absolute;
   inset: 0;
   background: #dedcdc;
-  z-index: 1;
+  z-index: 5;
   transform: translateX(0%);
   transition: transform 1s cubic-bezier(.56, .06, .41, .99);
 }
@@ -1804,7 +1804,7 @@ products-header h2 {
 }
 
 .logo {
-  width: 60px;
+  width: 100px;
   height: auto;
 }
 

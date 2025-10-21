@@ -1,31 +1,33 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logos/powerapp.png"; // replace with actual logo
+import { FaClock, FaCheckCircle, FaFileInvoiceDollar, FaChartBar } from "react-icons/fa";
+import logo from "../../assets/logos/powerapp.png";
 
 const TimesheetManagement = () => {
   const navigate = useNavigate();
+  const iconColor = "#d4ad00ff";
 
   const features = [
     {
       title: "Seamless Time Tracking",
       desc: "Track working hours, overtime, and project time effortlessly across teams.",
-      icon: "⏱️",
+      icon: <FaClock style={{ color: iconColor }} />,
     },
     {
       title: "Workflow Approvals",
       desc: "Automate timesheet approvals and notifications with integrated workflows.",
-      icon: "✅",
+      icon: <FaCheckCircle style={{ color: iconColor }} />,
     },
     {
       title: "Project Billing Integration",
       desc: "Link timesheets with project billing for accurate and automated invoicing.",
-      icon: "💼",
+      icon: <FaFileInvoiceDollar style={{ color: iconColor }} />,
     },
     {
       title: "Insightful Analytics",
       desc: "Gain real-time visibility into employee utilization and project progress.",
-      icon: "📊",
+      icon: <FaChartBar style={{ color: iconColor }} />,
     },
   ];
 
@@ -41,13 +43,19 @@ const TimesheetManagement = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right"data-aos="fade-left"data-aos-duration="1000">
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <img
             src={logo}
             alt="PowerApps Logo"
@@ -73,7 +81,9 @@ const TimesheetManagement = () => {
       {/* CTA */}
       <section className="productDetails-cta">
         <h2>Ready to Simplify Time Management?</h2>
-        <p>Automate tracking, approvals, and reporting in one unified platform.</p>
+        <p>
+          Automate tracking, approvals, and reporting in one unified platform.
+        </p>
         <button
           className="get-product-btn"
           onClick={() => navigate("/contact")}

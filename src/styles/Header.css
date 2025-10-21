@@ -381,3 +381,7 @@
   text-decoration: none; /* removes underline */
   color: inherit; /* keeps your logo text color same */
 }
+.full-logo {
+  height: 120px; /* adjust as needed */
+  width: auto;
+}

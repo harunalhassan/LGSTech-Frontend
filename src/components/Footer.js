@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Footer.css";
-import logo from "../assets/lgslogo.png";
+// import logo from "../assets/final LGSTech logo w2.png"; // ✅ Updated logo path
+import logo from "../assets/final_LGSTech_logo_w2-removebg-preview.png"; // ✅ Updated logo path
 
 function Footer() {
   const [email, setEmail] = useState("");
@@ -31,9 +32,10 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-left">
-        <img src={logo} alt="LGS Logo" className="footer-logo" />
+        {/* ✅ Replaced old logo with new full logo image */}
+        <img src={logo} alt="LGS Tech Logo" className="footer-logo full-logo-footer" />
         <p>
-          Copyright © 2025 LGSTech.
+          Copyright © 2025 LGS Tech.
           <br />
           All rights reserved
         </p>

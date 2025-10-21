@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logos/dynamic365.png";
+import { Rocket, FolderCog, Clock, CheckCircle } from "lucide-react"; // ✅ replaced FlaskConical with CheckCircle
 
 const AX2012UpgradeSolution = () => {
   const navigate = useNavigate();
@@ -10,27 +11,28 @@ const AX2012UpgradeSolution = () => {
     {
       title: "Smooth Upgrade Path",
       desc: "Upgrade from AX2012 to Dynamics 365 with minimal disruption and complete data consistency.",
-      icon: "🚀",
+      icon: <Rocket size={36} color="#d4ad00ff" />,
     },
     {
       title: "Data Fidelity",
       desc: "Preserve your existing configurations, customizations, and master data accurately.",
-      icon: "📂",
+      icon: <FolderCog size={36} color="#d4ad00ff" />,
     },
     {
       title: "Downtime Reduction",
       desc: "Leverage our optimized upgrade flow to reduce downtime and business impact.",
-      icon: "⏱️",
+      icon: <Clock size={36} color="#d4ad00ff" />,
     },
     {
       title: "Automated Testing",
       desc: "Automated validation scripts ensure the migrated environment performs flawlessly.",
-      icon: "🧪",
+      icon: <CheckCircle size={36} color="#d4ad00ff" />, // ✅ better representation for testing
     },
   ];
 
   return (
     <div className="product-detail-container">
+      {/* Hero Section */}
       <section className="product-hero split-hero">
         <div className="hero-content-left">
           <h1>AX2012 to Dynamics 365 Upgrade Solution</h1>
@@ -41,13 +43,19 @@ const AX2012UpgradeSolution = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right" data-aos="fade-left"data-aos-duration="1000">
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <img
             src={logo}
             alt="Dynamics 365 Logo"
@@ -56,6 +64,7 @@ const AX2012UpgradeSolution = () => {
         </div>
       </section>
 
+      {/* Key Features */}
       <section className="product-features">
         <h2>Key Features</h2>
         <div className="feature-grid">
@@ -69,11 +78,12 @@ const AX2012UpgradeSolution = () => {
         </div>
       </section>
 
-      <section className="productDetails-cta" data-aos="fade-up">
+      {/* CTA Section */}
+      <section className="productDetails-cta">
         <h2>Upgrade Smarter. Migrate Faster.</h2>
         <p>Empower your business with a smooth upgrade path to Dynamics 365.</p>
         <button
-          className="get-product-btn" 
+          className="get-product-btn"
           onClick={() => navigate("/contact")}
         >
           Get the Product

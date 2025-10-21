@@ -1,36 +1,44 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
+import {
+  FaArchive,
+  FaCompressAlt,
+  FaSearch,
+  FaShieldAlt,
+} from "react-icons/fa"; // icons
 import logo from "../../assets/logos/dynamic365.png";
 
 const LegacyApplication = () => {
   const navigate = useNavigate();
+  const iconColor = "#d4ad00ff";
 
   const features = [
     {
       title: "Seamless Archival",
       desc: "Migrate legacy datasets into Microsoft Fabric without losing searchability.",
-      icon: "📦",
+      icon: <FaArchive style={{ color: iconColor }} />,
     },
     {
       title: "Data Compression",
       desc: "Optimize storage with high-efficiency compression and minimal retention cost.",
-      icon: "🗜️",
+      icon: <FaCompressAlt style={{ color: iconColor }} />,
     },
     {
       title: "Searchable Retention",
       desc: "Retain archived data with fast retrieval and indexing support.",
-      icon: "🔍",
+      icon: <FaSearch style={{ color: iconColor }} />,
     },
     {
       title: "Compliance Ready",
       desc: "Ensure compliance with data privacy, retention, and audit policies.",
-      icon: "✅",
+      icon: <FaShieldAlt style={{ color: iconColor }} />,
     },
   ];
 
   return (
     <div className="product-detail-container">
+      {/* Hero Section */}
       <section className="product-hero split-hero">
         <div className="hero-content-left">
           <h1>Legacy Application to Fabric Data Archive Solution</h1>
@@ -41,13 +49,19 @@ const LegacyApplication = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right" data-aos="fade-left"data-aos-duration="1000">
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <img
             src={logo}
             alt="Dynamics 365 Logo"
@@ -56,6 +70,7 @@ const LegacyApplication = () => {
         </div>
       </section>
 
+      {/* Key Features */}
       <section className="product-features">
         <h2>Key Features</h2>
         <div className="feature-grid">
@@ -69,6 +84,7 @@ const LegacyApplication = () => {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="productDetails-cta">
         <h2>Modernize Your Data Archival Strategy</h2>
         <p>

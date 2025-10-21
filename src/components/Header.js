@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
-import logo from '../assets/lgs_logo.png';
+// import logo from "../assets/final LGSTech logo w2.png"
+import logo from "../assets/final_LGSTech_logo_w2-removebg-preview.png"
 
 function Header() {
   const [isShrunk, setIsShrunk] = useState(false);
@@ -15,7 +16,6 @@ function Header() {
   const [isNewsOpen, setIsNewsOpen] = useState(false);
   const [isStoriesOpen, setIsStoriesOpen] = useState(false);
 
-  // Scroll logic
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -32,7 +32,6 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMenuOpen]);
 
-  // Reset entry animation
   useEffect(() => {
     setInitialLoad(true);
     const t = setTimeout(() => setInitialLoad(false), 800);
@@ -59,7 +58,6 @@ function Header() {
     }, 500);
   };
 
-  // Scroll to products section
   const handleProductsClick = (e, fromOverlay = false) => {
     if (location.pathname === '/') {
       e.preventDefault();
@@ -68,18 +66,15 @@ function Header() {
         el.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Navigate to home and then scroll
       e.preventDefault();
       navigate('/', { state: { scrollTo: 'products-section' } });
     }
 
-    // only close overlay if clicked from overlay
     if (fromOverlay) {
       handleLinkClick();
     }
   };
 
-  // If navigated with scrollTo request
   useEffect(() => {
     if (location.state?.scrollTo) {
       const sectionId = location.state.scrollTo;
@@ -100,8 +95,8 @@ function Header() {
     >
       <div className="logo" data-aos="fade-down" data-aos-duration="500">
         <Link to="/" className="logo-link">
-          <img src={logo} alt="Logo" className="logo-icon" />
-          <span className="logo-text">LGSTech</span>
+          {/* ✅ Replaced text + icon with new full logo image */}
+          <img src={logo} alt="LGS Tech Logo" className="logo-icon full-logo" />
         </Link>
       </div>
 
@@ -109,9 +104,11 @@ function Header() {
         <nav className="nav-links" data-aos="fade-down" data-aos-duration="1000">
           <Link to="/">Home</Link>
           <Link to="/services">Services</Link>
-          <Link to="/" onClick={(e) => handleProductsClick(e, false)}>Products</Link>
+          <Link to="/" onClick={(e) => handleProductsClick(e, false)}>
+            Products
+          </Link>
 
-          {/* 🔽 News Dropdown (hover-based) */}
+          {/* News Dropdown */}
           <div 
             className="dropdown" 
             onMouseEnter={() => setIsNewsOpen(true)} 
@@ -120,18 +117,13 @@ function Header() {
             <Link to="/news" className="dropdown-link">News ▾</Link>
             {isNewsOpen && (
               <ul className="dropdown-menu">
-                <li>
-                  <Link to="/news/nadita2024">Nadita 2024</Link>
-                </li>
-                <li>
-                  <Link to="/news/nadita2023">Nadita 2023</Link>
-                </li>
+                <li><Link to="/news/nadita2024">Nadita 2024</Link></li>
+                <li><Link to="/news/nadita2023">Nadita 2023</Link></li>
               </ul>
             )}
           </div>
-          
 
-           {/* 🔽 News Dropdown (hover-based) */}
+          {/* Stories Dropdown */}
           <div 
             className="dropdown" 
             onMouseEnter={() => setIsStoriesOpen(true)} 
@@ -140,23 +132,15 @@ function Header() {
             <Link to="/stories" className="dropdown-link">Stories ▾</Link>
             {isStoriesOpen && (
               <ul className="dropdown-menu">
-                <li>
-                  <Link to="/stories/gecolsa">Gecolsa CAT</Link>
-                </li>
-                <li>
-                  <Link to="/stories/folycat">Foley CAT</Link>
-                </li>
-                <li>
-                  <Link to="/stories/pon-Norway-CAT">Pon Norway CAT</Link>
-                </li>
-                <li>
-                  <Link to="/stories/pon-Netherlands-CAT">Pon Netherlands CAT</Link>
-                </li>
+                <li><Link to="/stories/gecolsa">Gecolsa CAT</Link></li>
+                <li><Link to="/stories/folycat">Foley CAT</Link></li>
+                <li><Link to="/stories/pon-Norway-CAT">Pon Norway CAT</Link></li>
+                <li><Link to="/stories/pon-Netherlands-CAT">Pon Netherlands CAT</Link></li>
               </ul>
             )}
           </div>
+
           <Link to="/contact">Contact Us</Link>
-          
         </nav>
 
         <div
@@ -177,26 +161,10 @@ function Header() {
             &times;
           </div>
           <ul className="overlay-links">
-            <li>
-              <Link to="/" onClick={handleLinkClick}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={handleLinkClick}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/" onClick={(e) => handleProductsClick(e, true)}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" onClick={handleLinkClick}>
-                Contact Us
-              </Link>
-            </li>
+            <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
+            <li><Link to="/about" onClick={handleLinkClick}>About</Link></li>
+            <li><Link to="/" onClick={(e) => handleProductsClick(e, true)}>Products</Link></li>
+            <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
           </ul>
         </div>
       )}

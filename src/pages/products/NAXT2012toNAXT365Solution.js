@@ -1,36 +1,44 @@
 import React from "react";
 import "../../styles/ProductDetail.css";
 import { useNavigate } from "react-router-dom";
+import {
+  FaProjectDiagram,
+  FaLink,
+  FaClock,
+  FaAward,
+} from "react-icons/fa"; // updated icons
 import logo from "../../assets/logos/dynamic365.png";
 
 const NAXT2012toNAXT365Solution = () => {
   const navigate = useNavigate();
+  const iconColor = "#d4ad00ff";
 
   const features = [
     {
       title: "Unified Business Platform",
       desc: "Upgrade to an all-in-one DMS integrating sales, rental, service, parts, finance, and CRM.",
-      icon: "🏢",
+      icon: <FaProjectDiagram style={{ color: iconColor }} />,
     },
     {
       title: "Enhanced Integration",
       desc: "Seamlessly connect with Power BI, IoT, and Microsoft Azure for smarter operations.",
-      icon: "🔗",
+      icon: <FaLink style={{ color: iconColor }} />,
     },
     {
       title: "Minimal Downtime",
       desc: "Maintain business continuity with optimized migration tools and sandbox testing.",
-      icon: "🕒",
+      icon: <FaClock style={{ color: iconColor }} />,
     },
     {
       title: "Industry Proven",
       desc: "Trusted by equipment dealers and rental businesses globally for reliability and performance.",
-      icon: "🌍",
+      icon: <FaAward style={{ color: iconColor }} />,
     },
   ];
 
   return (
     <div className="product-detail-container">
+      {/* Hero Section */}
       <section className="product-hero split-hero">
         <div className="hero-content-left">
           <h1>NAXT 2012 to NAXT365 Upgrade Solution</h1>
@@ -41,13 +49,19 @@ const NAXT2012toNAXT365Solution = () => {
           </p>
           <button
             className="get-product-btn hero-btn"
-            onClick={() => navigate("/contact")}data-aos="fade-up"data-aos-duration="900"
+            onClick={() => navigate("/contact")}
+            data-aos="fade-up"
+            data-aos-duration="900"
           >
             Get the Product
           </button>
         </div>
 
-        <div className="hero-logo-right"data-aos="fade-left"data-aos-duration="1000">
+        <div
+          className="hero-logo-right"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
           <img
             src={logo}
             alt="Dynamics 365 Logo"
@@ -56,6 +70,7 @@ const NAXT2012toNAXT365Solution = () => {
         </div>
       </section>
 
+      {/* Key Features Section */}
       <section className="product-features">
         <h2>Key Features</h2>
         <div className="feature-grid">
@@ -69,6 +84,7 @@ const NAXT2012toNAXT365Solution = () => {
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="productDetails-cta">
         <h2>Upgrade to the Future of Dealership Management</h2>
         <p>

@@ -265,3 +265,26 @@
   }
 }
 
+.service-button-wrapper {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  /* text-align: center; */
+}
+
+.get-service-button {
+  background: linear-gradient(90deg, #1ea780, #08927d);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-service-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #005fa3, #0090b8);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+}

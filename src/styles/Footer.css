@@ -27,7 +27,7 @@
 
 .footer-left img {
   height: 120px;
-  width: 200px;
+  width: auto;
   margin-left: 0px;
   max-width: 100%;
 }
@@ -199,4 +199,9 @@
 
 .footer .socials a:hover {
   color: #0A66C2;           /* LinkedIn blue on hover */
+}
+.full-logo-footer {
+  height: 60px; /* adjust as needed */
+  width: auto;
+  margin-bottom: 10px;
 }
