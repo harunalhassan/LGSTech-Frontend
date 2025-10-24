@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // <--- IMPORT THIS
 import '../styles/Home.css';
-import logo from '../assets/final_LGSTech_logo_w2-removebg-preview-sidebaar.png';
+import logo from '../assets/final_LGSTech_logo_w2-removebg-preview.png';
 import ScrollToTop from './ScrollToTop';
 
 const Sidebar = ({ darkMode }) => {
