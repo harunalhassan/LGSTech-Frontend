@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Footer.css";
-// import logo from "../assets/final LGSTech logo w2.png"; // ✅ Updated logo path
 import logo from "../assets/primaryLGS_logo/LGSTECH Website Version.png"; // ✅ Updated logo path
 
 function Footer() {
@@ -15,7 +14,8 @@ function Footer() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/subscribe", {
+      const backendURL = process.env.REACT_APP_BACKEND_URL;// ✅ uses env variable
+      const res = await fetch(`${backendURL}/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -33,7 +33,11 @@ function Footer() {
     <footer className="footer">
       <div className="footer-left">
         {/* ✅ Replaced old logo with new full logo image */}
-        <img src={logo} alt="LGS Tech Logo" className="footer-logo full-logo-footer" />
+        <img
+          src={logo}
+          alt="LGS Tech Logo"
+          className="footer-logo full-logo-footer"
+        />
         <p>
           Copyright © 2025 LGS Tech.
           <br />
@@ -54,19 +58,33 @@ function Footer() {
         <div className="column">
           <h4>Company</h4>
           <ul>
-            <li><Link to="/about">About us</Link></li>
-            <li><Link to="/contact">Contact us</Link></li>
-            <li><Link to="/blogs">Blogs</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/stories">Stories</Link></li>
+            <li>
+              <Link to="/about">About us</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact us</Link>
+            </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
+            </li>
+            <li>
+              <Link to="/services">Services</Link>
+            </li>
+            <li>
+              <Link to="/stories">Stories</Link>
+            </li>
           </ul>
         </div>
 
         <div className="column">
           <h4>Support</h4>
           <ul>
-            <li><Link to="/help">Help center</Link></li>
-            <li><Link to="/privacy">Privacy policy</Link></li>
+            <li>
+              <Link to="/help">Help center</Link>
+            </li>
+            <li>
+              <Link to="/privacy">Privacy policy</Link>
+            </li>
           </ul>
         </div>
 
