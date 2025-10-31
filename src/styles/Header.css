@@ -331,7 +331,7 @@
   }
 
   .logo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .logo-icon {
@@ -382,6 +382,6 @@
   color: inherit; /* keeps your logo text color same */
 }
 .full-logo {
-  height: 120px; /* adjust as needed */
+  height: 140px; /* adjust as needed */
   width: auto;
 }

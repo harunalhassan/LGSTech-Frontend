@@ -1926,6 +1926,42 @@ products-header h2 {
   }
 }
 
+.sidebar_logo-wrapper {
+  position: relative;
+  width: 100%;          /* Keeps it within sidebar width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;     /* Prevent logo overflow */
+  height: 100px;        /* Adjust based on your logo size */
+  margin-bottom: 1rem;
+}
+
+.sidebar_logo {
+  width: 90px;          /* Adjust as needed */
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.6s ease-in-out;
+}
+
+.logo-light,
+.logo-dark {
+  opacity: 0;
+}
+
+.visible-logo {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hidden-logo {
+  opacity: 0;
+  z-index: 1;
+}
+
 
 
 /* Contact Section */

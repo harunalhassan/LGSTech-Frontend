@@ -2,7 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // <--- IMPORT THIS
 import '../styles/Home.css';
-import logo from '../assets/final_LGSTech_logo_w2-removebg-preview.png';
+import logoLight from '../assets/primaryLGS_logo/LGS Tech Logo Gradient_croppedv2.PNG';
+import logoDark from '../assets/primaryLGS_logo/LGS_Tech_White_Logo_cropped-removebg-preview.png';
+
 import ScrollToTop from './ScrollToTop';
 
 const Sidebar = ({ darkMode }) => {
@@ -14,12 +16,21 @@ const Sidebar = ({ darkMode }) => {
 
   return (
     <div className={`sidebar ${sidebarTheme}`}>
-      <div className="logo-wrapper">
-        {/* Make the logo link to the homepage */}
+      <div className="sidebar_logo-wrapper">
         <Link to="/">
-          <img src={logo} alt="Company Logo" className="logo" />
+          <img
+            src={logoLight}
+            alt="Company Logo Light"
+            className={`sidebar_logo logo-light ${darkMode ? 'hidden-logo' : 'visible-logo'}`}
+          />
+          <img
+            src={logoDark}
+            alt="Company Logo Dark"
+            className={`sidebar_logo logo-dark ${darkMode ? 'visible-logo' : 'hidden-logo'}`}
+          />
         </Link>
       </div>
+
 
       <nav className="sidebar-links">
         {/* External links should remain as <a> tags */}

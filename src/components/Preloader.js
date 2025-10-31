@@ -359,15 +359,16 @@
 
 
 // Preloader with Shatter Effect (company name shows immediately at explosion start)
+// Preloader with Shatter Effect (company name shows immediately at explosion start)
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Preloader.css";
 
 const Preloader = ({
   onFinish,
-  duration = 2000,
-  numSlices = 60,
+  duration = 2500,
+  numSlices = 80,
   logoSrc,
-  logoScale = 0.3,
+  logoScale = 0.4,
 }) => {
   const canvasRef = useRef(null);
   const [finished, setFinished] = useState(false);
@@ -428,32 +429,27 @@ const Preloader = ({
       const startTime = startRealTime + logoHold;
       const endFade = startTime + duration;
 
-      let nameShown = false; // flag to avoid multiple triggers
+      let nameShown = false;
 
       const animate = (t) => {
         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-        // Hold before shatter
+        // 🔹 Hold phase — fade logo from left to right
         if (t < startTime) {
           const holdProgress = Math.min(1, Math.max(0, (t - startRealTime) / logoHold));
           const ease = Math.sin((holdProgress * Math.PI) / 2);
-          const yOffset = (1 - ease) * 100;
+
+          const revealWidth = drawW * ease; // reveal width grows left to right
 
           ctx.save();
-          ctx.globalAlpha = ease;
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            logoW,
-            logoH,
-            offsetX,
-            offsetY + yOffset,
-            drawW,
-            drawH
-          );
+          ctx.beginPath();
+          ctx.rect(offsetX, offsetY, revealWidth, drawH); // mask from left to right
+          ctx.clip();
+
+          ctx.globalAlpha = ease; // smooth fade
+          ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
           ctx.restore();
 
           rafId = requestAnimationFrame(animate);
@@ -466,7 +462,7 @@ const Preloader = ({
           nameShown = true;
         }
 
-        // Shatter pieces
+        // Shatter pieces (unchanged)
         const distanceMultiplier = 2.8;
         const maxScale = 4.5;
 
@@ -510,7 +506,7 @@ const Preloader = ({
             setTimeout(() => {
               setFinished(true);
               if (typeof onFinish === "function") onFinish();
-            }, 600) // slide-out duration
+            }, 600)
           );
         }
       };
@@ -546,4 +542,3 @@ const Preloader = ({
 };
 
 export default Preloader;
-
