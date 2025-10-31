@@ -19,7 +19,7 @@ import Contact from './pages/Contact';
 
 // Styles
 import './styles/App.css';
-import logo from "../src/assets/primaryLGS_logo/LGS Tech Logo Gradient_cropped.PNG";  // adjust relative path
+import logo from "../src/assets/primaryLGS_logo/LGS Tech Logo Gradient_cropped.png";  // adjust relative path
 // import logo from "../src/assets/final_LGSTech_logo_w2-removebg-preview-sidebaar.PNG";
 import Nadita2024 from './pages/News/Nadita2024';
 import Nadita2023 from './pages/News/Nadita2023';
