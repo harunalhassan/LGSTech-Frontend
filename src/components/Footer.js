@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 // import logo from "../assets/final LGSTech logo w2.png"; // ✅ Updated logo path
-import logo from "../assets/primaryLGS_logo/LGSTECH Logo White Background.jpg"; // ✅ Updated logo path
+import logo from "../assets/primaryLGS_logo/LGSTECH Website Version.png"; // ✅ Updated logo path
 
 function Footer() {
   const [email, setEmail] = useState("");
