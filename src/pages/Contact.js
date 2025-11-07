@@ -4,38 +4,25 @@ import "../styles/Contact.css";
 
 const Contact = () => {
   const [darkTheme, setDarkTheme] = useState(false);
-
-  // Form state
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  
-  // ✅ Notification state
-  const [notification, setNotification] = useState({
-    show: false,
-    message: "",
-    isSuccess: false,
-  });
+  const [notification, setNotification] = useState({ show: false, message: "", isSuccess: false });
 
-  // ✅ Force scroll to top when component mounts
+  // ✅ New loading state
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ✅ Theme toggle on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setDarkTheme(window.scrollY !== 0);
-    };
+    const handleScroll = () => setDarkTheme(window.scrollY !== 0);
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Handle input change
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  // ✅ Show notification
   const showNotification = (message, isSuccess) => {
     setNotification({ show: true, message, isSuccess });
     setTimeout(() => {
@@ -43,17 +30,14 @@ const Contact = () => {
     }, 4000);
   };
 
-  const closeNotification = () => {
-    setNotification({ ...notification, show: false });
-  };
+  const closeNotification = () => setNotification({ ...notification, show: false });
 
-  // ✅ Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // ✅ Use environment variable
-      const backendURL = process.env.REACT_APP_BACKEND_URL;
+    setIsLoading(true); // ✅ Start loading
 
+    try {
+      const backendURL = process.env.REACT_APP_BACKEND_URL;
       const res = await fetch(`${backendURL}/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -63,10 +47,7 @@ const Contact = () => {
       const data = await res.json();
 
       if (res.ok) {
-        showNotification(
-          "Your message has been submitted successfully. We will be in touch soon!",
-          true
-        );
+        showNotification("Your message has been submitted successfully. We will be in touch soon!", true);
         setFormData({ name: "", email: "", message: "" });
       } else {
         showNotification(data.error || "Something went wrong. Try again.", false);
@@ -74,12 +55,13 @@ const Contact = () => {
     } catch (err) {
       console.error("Error:", err);
       showNotification("Oops! Something went wrong. Please try again later.", false);
+    } finally {
+      setIsLoading(false); // ✅ Stop loading
     }
   };
 
   return (
     <section className={`contact-section ${darkTheme ? "dark-theme" : "light-theme"}`}>
-      {/* ✅ Notification Bar */}
       {notification.show && (
         <div className={`notification-bar ${notification.isSuccess ? "success" : "error"}`}>
           <div className="notification-content">
@@ -88,31 +70,47 @@ const Contact = () => {
             ) : (
               <XCircle size={20} className="icon-error" />
             )}
-
             <div className="notification-text">
-              <p className="notification-title">
-                {notification.isSuccess ? "Success!" : "Oops!"}
-              </p>
+              <p className="notification-title">{notification.isSuccess ? "Success!" : "Oops!"}</p>
               <p className="notification-message">{notification.message}</p>
             </div>
           </div>
-
-          <button onClick={closeNotification} className="close-btn">
-            <X size={16} />
-          </button>
+          <button onClick={closeNotification} className="close-btn"><X size={16} /></button>
         </div>
       )}
 
-      {/* Heading */}
       <h1 className="contact-title" data-aos="fade-up">Let’s Connect</h1>
       <p className="contact-subtitle" data-aos="fade-up">
         Have questions, ideas, or just want to say hello?  
         Reach us directly or send a quick message below.
       </p>
 
-      {/* Contact Info Section */}
+      <div className="contact-card form-card" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Send a Message</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+            <label>Your Name</label>
+          </div>
+
+          <div className="input-group">
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+            <label>Your Email</label>
+          </div>
+
+          <div className="input-group">
+            <textarea rows="5" name="message" value={formData.message} onChange={handleChange} required></textarea>
+            <label>Your Message</label>
+          </div>
+
+          {/* ✅ Loading spinner inside button */}
+          <button type="submit" className="submit-btn" disabled={isLoading}>
+            {isLoading ? <div className="loader"></div> : "Send Message"}
+          </button>
+        </form>
+      </div>
+
       <div className="info-section">
-        {/* Map */}
         <div className="map-container" data-aos="fade-right">
           <iframe
             title="Company Location"
@@ -126,16 +124,12 @@ const Contact = () => {
           ></iframe>
         </div>
 
-        {/* Details */}
         <div className="details-container" data-aos="fade-left">
           <h2>Contact Information</h2>
           <ul>
             <li>
               <MapPin className="icon" />
-              <span>
-                457 Upper Edward Street,  
-                Spring Hill, QLD - 4000
-              </span>
+              <span>457 Upper Edward Street, Spring Hill, QLD - 4000</span>
             </li>
           </ul>
 
@@ -146,47 +140,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Contact Form */}
-      <div className="contact-card form-card" data-aos="fade-up" data-aos-duration="1000">
-        <h2>Send a Message</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <label>Your Name</label>
-          </div>
-
-          <div className="input-group">
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <label>Your Email</label>
-          </div>
-
-          <div className="input-group">
-            <textarea
-              rows="5"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-            <label>Your Message</label>
-          </div>
-
-          <button type="submit" className="submit-btn">Send Message</button>
-        </form>
       </div>
     </section>
   );

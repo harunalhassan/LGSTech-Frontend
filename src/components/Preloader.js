@@ -360,13 +360,205 @@
 
 // Preloader with Shatter Effect (company name shows immediately at explosion start)
 // Preloader with Shatter Effect (company name shows immediately at explosion start)
+// import React, { useRef, useEffect, useState } from "react";
+// import "../styles/Preloader.css";
+
+// const Preloader = ({
+//   onFinish,
+//   duration = 2500,
+//   numSlices = 80,
+//   logoSrc,
+//   logoScale = 0.4,
+// }) => {
+//   const canvasRef = useRef(null);
+//   const [finished, setFinished] = useState(false);
+//   const [slideOut, setSlideOut] = useState(false);
+//   const [showName, setShowName] = useState(false);
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     if (!canvas) return;
+
+//     const ctx = canvas.getContext("2d");
+//     const dpr = window.devicePixelRatio || 1;
+//     canvas.width = canvas.clientWidth * dpr;
+//     canvas.height = canvas.clientHeight * dpr;
+//     ctx.scale(dpr, dpr);
+
+//     const img = new Image();
+//     img.crossOrigin = "anonymous";
+//     img.src = logoSrc;
+
+//     let rafId = null;
+//     const timeouts = [];
+
+//     img.onload = () => {
+//       const logoW = img.width;
+//       const logoH = img.height;
+
+//       const maxDim = Math.min(
+//         canvas.clientWidth * logoScale,
+//         canvas.clientHeight * logoScale
+//       );
+//       const scale = Math.min(maxDim / logoW, maxDim / logoH);
+//       const drawW = logoW * scale;
+//       const drawH = logoH * scale;
+//       const offsetX = (canvas.clientWidth - drawW) / 2;
+//       const offsetY = (canvas.clientHeight - drawH) / 2;
+
+//       const centerX = offsetX + drawW / 2;
+//       const centerY = offsetY + drawH / 2;
+//       const radius = drawW / 2;
+
+//       const pieces = [];
+//       for (let i = 0; i < numSlices; i++) {
+//         const startAngle = (i * 2 * Math.PI) / numSlices;
+//         const endAngle = ((i + 1) * 2 * Math.PI) / numSlices;
+//         pieces.push({
+//           startAngle,
+//           endAngle,
+//           cx: centerX,
+//           cy: centerY,
+//           radius,
+//           delay: Math.random() * 300,
+//         });
+//       }
+
+//       const logoHold = 1200; // hold before explosion
+//       const startRealTime = performance.now();
+//       const startTime = startRealTime + logoHold;
+//       const endFade = startTime + duration;
+
+//       let nameShown = false;
+
+//       const animate = (t) => {
+//         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+//         ctx.fillStyle = "#000";
+//         ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+//         // 🔹 Hold phase — fade logo from left to right
+//         if (t < startTime) {
+//           const holdProgress = Math.min(1, Math.max(0, (t - startRealTime) / logoHold));
+//           const ease = Math.sin((holdProgress * Math.PI) / 2);
+
+//           const revealWidth = drawW * ease; // reveal width grows left to right
+
+//           ctx.save();
+//           ctx.beginPath();
+//           ctx.rect(offsetX, offsetY, revealWidth, drawH); // mask from left to right
+//           ctx.clip();
+
+//           ctx.globalAlpha = ease; // smooth fade
+//           ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
+//           ctx.restore();
+
+//           rafId = requestAnimationFrame(animate);
+//           return;
+//         }
+
+//         // 🔑 As soon as explosion starts, show company name
+//         if (!nameShown) {
+//           setShowName(true);
+//           nameShown = true;
+//         }
+
+//         // Shatter pieces (unchanged)
+//         const distanceMultiplier = 2.8;
+//         const maxScale = 4.5;
+
+//         pieces.forEach((p) => {
+//           if (t < startTime + p.delay) return;
+
+//           const timeSinceStart = t - startTime - p.delay;
+//           const shatterDuration = duration * 0.7;
+//           const progress = Math.min(1, timeSinceStart / shatterDuration);
+//           const ease = Math.sin((progress * Math.PI) / 2);
+
+//           const moveDist = ease * radius * distanceMultiplier;
+//           const scaleFactor = 1 + ease * (maxScale - 1);
+//           const alpha = 1 - progress;
+
+//           const angle = (p.startAngle + p.endAngle) / 2;
+//           const dx = Math.cos(angle) * moveDist;
+//           const dy = Math.sin(angle) * moveDist;
+
+//           ctx.save();
+//           ctx.translate(p.cx + dx, p.cy + dy);
+//           ctx.scale(scaleFactor, scaleFactor);
+//           ctx.translate(-p.cx, -p.cy);
+//           ctx.globalAlpha = alpha;
+
+//           ctx.beginPath();
+//           ctx.moveTo(p.cx, p.cy);
+//           ctx.arc(p.cx, p.cy, p.radius, p.startAngle, p.endAngle);
+//           ctx.closePath();
+//           ctx.clip();
+
+//           ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
+//           ctx.restore();
+//         });
+
+//         if (t < endFade + 300) {
+//           rafId = requestAnimationFrame(animate);
+//         } else {
+//           setSlideOut(true);
+//           timeouts.push(
+//             setTimeout(() => {
+//               setFinished(true);
+//               if (typeof onFinish === "function") onFinish();
+//             }, 600)
+//           );
+//         }
+//       };
+
+//       rafId = requestAnimationFrame(animate);
+//     };
+
+//     return () => {
+//       if (rafId) cancelAnimationFrame(rafId);
+//       timeouts.forEach((id) => clearTimeout(id));
+//     };
+//   }, [logoSrc, duration, logoScale, numSlices, onFinish]);
+
+//   const companyName = "LGSTECH";
+
+//   return (
+//     <div className={`preloader-wrapper ${slideOut ? "slide-out" : ""}`}>
+//       <canvas
+//         ref={canvasRef}
+//         className="preloader-canvas"
+//         width={window.innerWidth}
+//         height={window.innerHeight}
+//       />
+//       {!finished && showName && (
+//         <div className="loader-footer">
+//           <span className={`company-gradient ${slideOut ? "hide" : ""}`}>
+//             {companyName}
+//           </span>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Preloader;
+
+
+
+
+
+// optimized
+
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/Preloader.css";
 
+const easeInOutCubic = (x) =>
+  x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+
 const Preloader = ({
   onFinish,
-  duration = 2500,
-  numSlices = 80,
+  duration = 2800,
+  numSlices = 50,
   logoSrc,
   logoScale = 0.4,
 }) => {
@@ -379,7 +571,7 @@ const Preloader = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { willReadFrequently: false });
     const dpr = window.devicePixelRatio || 1;
     canvas.width = canvas.clientWidth * dpr;
     canvas.height = canvas.clientHeight * dpr;
@@ -405,82 +597,81 @@ const Preloader = ({
       const drawH = logoH * scale;
       const offsetX = (canvas.clientWidth - drawW) / 2;
       const offsetY = (canvas.clientHeight - drawH) / 2;
-
       const centerX = offsetX + drawW / 2;
       const centerY = offsetY + drawH / 2;
       const radius = drawW / 2;
 
-      const pieces = [];
-      for (let i = 0; i < numSlices; i++) {
+      // ⚡ Pre-render logo to offscreen canvas
+      const offCanvas = document.createElement("canvas");
+      offCanvas.width = drawW;
+      offCanvas.height = drawH;
+      const offCtx = offCanvas.getContext("2d");
+      offCtx.drawImage(img, 0, 0, logoW, logoH, 0, 0, drawW, drawH);
+
+      const pieces = Array.from({ length: numSlices }, (_, i) => {
         const startAngle = (i * 2 * Math.PI) / numSlices;
         const endAngle = ((i + 1) * 2 * Math.PI) / numSlices;
-        pieces.push({
+        return {
           startAngle,
           endAngle,
+          delay: Math.random() * 300,
           cx: centerX,
           cy: centerY,
-          radius,
-          delay: Math.random() * 300,
-        });
-      }
+        };
+      });
 
-      const logoHold = 1200; // hold before explosion
+      const logoHold = 2200; // 🕐 slower and smoother reveal (3s)
       const startRealTime = performance.now();
-      const startTime = startRealTime + logoHold;
-      const endFade = startTime + duration;
-
+      const startTime = startRealTime; // 🟢 Start immediately, no delay
+      const endFade = startTime + logoHold + duration+200;
       let nameShown = false;
 
       const animate = (t) => {
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-        // 🔹 Hold phase — fade logo from left to right
-        if (t < startTime) {
-          const holdProgress = Math.min(1, Math.max(0, (t - startRealTime) / logoHold));
-          const ease = Math.sin((holdProgress * Math.PI) / 2);
-
-          const revealWidth = drawW * ease; // reveal width grows left to right
+        // 🟩 Smooth left-to-right reveal
+        const elapsed = t - startRealTime;
+        if (elapsed < logoHold) {
+          const rawProgress = Math.min(1, elapsed / logoHold);
+          const eased = easeInOutCubic(rawProgress);
+          const revealWidth = drawW * eased;
 
           ctx.save();
           ctx.beginPath();
-          ctx.rect(offsetX, offsetY, revealWidth, drawH); // mask from left to right
+          ctx.rect(offsetX, offsetY, revealWidth, drawH);
           ctx.clip();
-
-          ctx.globalAlpha = ease; // smooth fade
-          ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
+          ctx.globalAlpha = 0.95;
+          ctx.drawImage(offCanvas, offsetX, offsetY);
           ctx.restore();
 
           rafId = requestAnimationFrame(animate);
           return;
         }
 
-        // 🔑 As soon as explosion starts, show company name
+        // 🔹 Once reveal finishes, start name + explosion
         if (!nameShown) {
           setShowName(true);
           nameShown = true;
         }
 
-        // Shatter pieces (unchanged)
-        const distanceMultiplier = 2.8;
-        const maxScale = 4.5;
+        const timeSinceStart = Math.max(0, t - (startRealTime + logoHold));
+        const distanceMultiplier = 2.4;
+        const maxScale = 3.2;
 
-        pieces.forEach((p) => {
-          if (t < startTime + p.delay) return;
+        for (const p of pieces) {
+          if (t < startRealTime + logoHold + p.delay) continue;
 
-          const timeSinceStart = t - startTime - p.delay;
-          const shatterDuration = duration * 0.7;
-          const progress = Math.min(1, timeSinceStart / shatterDuration);
-          const ease = Math.sin((progress * Math.PI) / 2);
+          const localT =
+            (t - (startRealTime + logoHold) - p.delay) / (duration * 0.7);
+          const eased = easeInOutCubic(Math.min(1, localT));
+          const moveDist = eased * radius * distanceMultiplier;
+          const scaleFactor = 1 + eased * (maxScale - 1);
+          const alpha = 1 - eased;
 
-          const moveDist = ease * radius * distanceMultiplier;
-          const scaleFactor = 1 + ease * (maxScale - 1);
-          const alpha = 1 - progress;
-
-          const angle = (p.startAngle + p.endAngle) / 2;
-          const dx = Math.cos(angle) * moveDist;
-          const dy = Math.sin(angle) * moveDist;
+          const midAngle = (p.startAngle + p.endAngle) / 2;
+          const dx = Math.cos(midAngle) * moveDist;
+          const dy = Math.sin(midAngle) * moveDist;
 
           ctx.save();
           ctx.translate(p.cx + dx, p.cy + dy);
@@ -490,13 +681,13 @@ const Preloader = ({
 
           ctx.beginPath();
           ctx.moveTo(p.cx, p.cy);
-          ctx.arc(p.cx, p.cy, p.radius, p.startAngle, p.endAngle);
+          ctx.arc(p.cx, p.cy, radius, p.startAngle, p.endAngle);
           ctx.closePath();
           ctx.clip();
 
-          ctx.drawImage(img, 0, 0, logoW, logoH, offsetX, offsetY, drawW, drawH);
+          ctx.drawImage(offCanvas, offsetX, offsetY);
           ctx.restore();
-        });
+        }
 
         if (t < endFade + 300) {
           rafId = requestAnimationFrame(animate);
@@ -506,7 +697,7 @@ const Preloader = ({
             setTimeout(() => {
               setFinished(true);
               if (typeof onFinish === "function") onFinish();
-            }, 600)
+            }, 500)
           );
         }
       };
@@ -526,7 +717,8 @@ const Preloader = ({
     <div className={`preloader-wrapper ${slideOut ? "slide-out" : ""}`}>
       <canvas
         ref={canvasRef}
-        className="preloader-canvas"
+        className="preloader-canvas" data-aos="fade-left"
+     data-aos-duration="7000"
         width={window.innerWidth}
         height={window.innerHeight}
       />

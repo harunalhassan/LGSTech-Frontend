@@ -18,7 +18,7 @@ const Unsubscribe = () => {
     }
 
     // Call backend API
-    fetch(`http://localhost:5000/unsubscribe`, {
+    fetch(`http://16.16.201.189/api/unsubscribe`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),

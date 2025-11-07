@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // <--- IMPORT THIS
 import '../styles/Home.css';
-import logoLight from '../assets/primaryLGS_logo/LGS Tech Logo Gradient_croppedv2.jpg';
-import logoDark from '../assets/primaryLGS_logo/LGS_Tech_White_Logo_cropped-removebg-preview.png';
+import logoLight from '../assets/primaryLGS_logo/LGSTECH Website Version Without Tagline.png';
+import logoDark from '../assets/primaryLGS_logo/LGSTECH cropped logo without bg.png';
 
 import ScrollToTop from './ScrollToTop';
 

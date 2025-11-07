@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 // import logo from "../assets/final LGSTech logo w2.png"
-import logo from "../assets/primaryLGS_logo/LGSTECH Website Version.png"
-// import logo from "../assets/primaryLGS_logo/LGSTECH Logo White Background_cropped.JPG"
+// import logo from "../assets/primaryLGS_logo/LGSTECH Website Version.png"
+import logo from "../assets/primaryLGS_logo/LGS Tech 3D logo_cropped.jpg"
 
 function Header() {
   const [isShrunk, setIsShrunk] = useState(false);

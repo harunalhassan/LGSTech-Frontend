@@ -1933,12 +1933,12 @@ products-header h2 {
   justify-content: center;
   align-items: center;
   overflow: hidden;     /* Prevent logo overflow */
-  height: 100px;        /* Adjust based on your logo size */
+  height: 100px;
   margin-bottom: 1rem;
 }
 
 .sidebar_logo {
-  width: 90px;          /* Adjust as needed */
+  width: 80px;          /* Adjust as needed */
   height: auto;
   position: absolute;
   top: 50%;

@@ -205,3 +205,60 @@
   width: auto;
   margin-bottom: 10px;
 }
+/* Subscribe button loader */
+.loader {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Disable states */
+.subscribe input:disabled,
+.subscribe button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Wrapper for input + button */
+.subscribe-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Subscribe message styling */
+.subscribe-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.subscribe-message.success {
+  color: #16a34a; /* green */
+}
+
+.subscribe-message.error {
+  color: #dc2626; /* red */
+}
+.subscribe-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+
+.subscribe-message.success {
+  color: #03a2a0; /* teal-blue shade matching your site theme */
+}
+
+.subscribe-message.error {
+  color: #dc2626; /* red for error */
+}

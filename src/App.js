@@ -19,7 +19,6 @@ import Contact from "./pages/Contact";
 
 // Styles
 import "./styles/App.css";
-import logo from "../src/assets/primaryLGS_logo/onlylogo.jpg"; // adjust relative path
 // import logo from "../src/assets/final_LGSTech_logo_w2-removebg-preview-sidebaar.PNG";
 import Nadita2024 from "./pages/News/Nadita2024";
 import Nadita2023 from "./pages/News/Nadita2023";
@@ -46,6 +45,7 @@ import AX2012UpgradeSolution from "./pages/products/AX2012UpgradeSolution";
 import TimesheetManagement from "./pages/products/TimesheetManagement";
 import FixedAssets from "./pages/products/FixedAssets";
 import AzureDevOps from "./pages/products/AzureDevOps";
+import logo from "../src/assets/primaryLGS_logo/LGS Tech Icon.png"; // adjust relative path
 
 function App() {
   const [ready, setReady] = useState(false);
