@@ -65,7 +65,7 @@ const whatsNewItems = [
     image: dashboard1,
     link: '/d365-security',
     ctaText: 'Know More',
-    bgColor: '#166b61f8', // brand teal
+    bgColor: 'rgb(117, 193, 0)', // brand teal
   },
   {
     id: 2,
@@ -74,7 +74,7 @@ const whatsNewItems = [
     image: dashboard2,
     link: '/d365-implementation-services',
     ctaText: 'Know More',
-    bgColor: '#61931cff', // green shade
+    bgColor: 'rgb(0, 128, 123)', // green shade
   },
   {
     id: 3,
@@ -83,7 +83,7 @@ const whatsNewItems = [
     image: dashboard3,
     link: '/data-migration-best-practices',
     ctaText: 'Know More',
-    bgColor: '#013886ff', // bright cyan
+    bgColor: 'rgb(0, 37, 93)', // bright cyan
   },
 ];
 

@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   margin-top: 200px;
-  font-family: "Montserrat", sans-serif;
+   font-family: "Inter", sans-serif;
   transition: background-color 0.8s ease, color 0.8s ease; /* smoother */
 }
 
@@ -132,11 +132,11 @@
 }
 
 .services-subtitle-header {
-  color: #0b857d;
+  color: #00807b;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.15em;
-  font-family: "Montserrat", sans-serif;
+   font-family: "Inter", sans-serif;
   
 }
 
@@ -144,7 +144,7 @@
   margin-top: 3rem;
   font-size: 1rem;
   font-weight: 750;
-  letter-spacing: -0.025em;
+  letter-spacing: px;
 }
 
 .services-intro {
@@ -154,6 +154,8 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.75;
+  
+  font-family: "Montserrat", sans-serif;
 }
 
 /* --- List of Services --- */
@@ -238,7 +240,7 @@
   padding: 10px 24px;
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+   font-family: "Inter", sans-serif;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0% 50%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: background 0.8s ease, color 0.8s ease;
@@ -272,7 +274,7 @@
 }
 
 .get-service-button {
-  background: linear-gradient(90deg, #1ea780, #08927d);
+  background: linear-gradient(90deg, #1ea780, #00807b);
   color: white;
   border: none;
   padding: 10px 24px;
@@ -285,6 +287,6 @@
 
 .get-service-button:hover {
   transform: translateY(-2px);
-  background: linear-gradient(90deg, #005fa3, #0090b8);
+  background: linear-gradient(90deg, #00255d, #0090b8);
   box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
 }

@@ -51,7 +51,7 @@
 }
 
 .nav-links a {
-  font-family: "Montserrat", sans-serif;
+   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   position: relative;
   text-decoration: none;
@@ -91,7 +91,7 @@
 }
 
 .dropdown-link {
-  font-family: "Montserrat", sans-serif;
+     font-family: "Inter", sans-serif;
   font-weight: 700;
   color: #333;
   text-decoration: none;
@@ -127,7 +127,7 @@
   padding: 8px 15px;
   color: #111;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+     font-family: "Inter", sans-serif;
   font-weight: 500;
   transition: background 0.2s;
   background-color: #fdc2f943;
@@ -224,7 +224,7 @@
 .overlay-links li {
   margin: 20px 0;
   font-size: 1.8rem;
-  font-family: "Montserrat", sans-serif;
+     font-family: "Inter", sans-serif;
   font-weight: 600;
 }
 

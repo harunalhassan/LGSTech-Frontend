@@ -711,7 +711,7 @@ const Preloader = ({
     };
   }, [logoSrc, duration, logoScale, numSlices, onFinish]);
 
-  const companyName = "LGSTECH";
+  const companyName = "LGS Tech";
 
   return (
     <div className={`preloader-wrapper ${slideOut ? "slide-out" : ""}`}>
@@ -725,8 +725,9 @@ const Preloader = ({
       {!finished && showName && (
         <div className="loader-footer">
           <span className={`company-gradient ${slideOut ? "hide" : ""}`}>
-            {companyName}
+            <span className="lgs">LGS</span> <span className="tech">Tech</span>
           </span>
+
         </div>
       )}
     </div>

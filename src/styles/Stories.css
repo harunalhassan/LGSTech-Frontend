@@ -25,7 +25,7 @@ body {
 .project-title {
   font-size: 2.8rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #0c7b94, #017159);
+  background: linear-gradient(90deg, #0c7b94, #00255d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
@@ -320,15 +320,15 @@ body {
 /* stories Page */
 /* ====== Page Base ====== */
 .stories-page {
-  --brand1: #18bdaf;
-  --brand2: #05415b;
+  --brand1: #00807b;
+  --brand2: #00255d;
   --ink: #1f2937;
   --muted: #6b7280;
   --bg: #f9fafc;
   --card: #ffffff;
   --radius: 20px;
   background: var(--bg);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
 
@@ -368,11 +368,12 @@ body {
   font-size: 3.2rem;
   font-weight: 900;
   line-height: 1.1;
-  background: linear-gradient(90deg, #79f8ff, #a0ff0d);
+  background: linear-gradient(90deg, #79f8ff,#adf541);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 16px;
   animation: fadeUp 1s ease forwards;
+  font-family: "Inter", sans-serif;
   
 }
 
@@ -503,6 +504,7 @@ body {
   color: var(--muted);
   margin: 0 0 18px;
   line-height: 1.7;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* ====== GRID ====== */
@@ -568,6 +570,7 @@ body {
   margin: 0 0 14px;
   color: var(--muted);
   line-height: 1.6;
+    font-family: "Montserrat", sans-serif;
 }
 .story-tags { display: flex; gap: 8px; flex-wrap: wrap; }
 .tag {
@@ -642,6 +645,7 @@ body {
 .stories-cta p {
   color: var(--muted);
   margin: 6px 0 20px;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* ====== Reveal & Animations ====== */
