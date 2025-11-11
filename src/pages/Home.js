@@ -1304,7 +1304,8 @@ function Home() {
               <span className="highlight"> Reliable</span> and{" "}
               <span className="highlight"> Smarter Future.</span>
             </h1>
-            <h2 className='home-subheading'>Revolutionize Your Business With Our Product</h2>
+            {/* <h2 className='home-subheading'>Transforming Businesses Through Seamless Data Migration and Dynamics 365 Solutions.</h2> */}
+            <h2 className='home-subheading'>Empowering End-to-End Microsoft Dynamics 365 Implementations and Data Migration Excellence</h2>
           </div>
         </section>
 
