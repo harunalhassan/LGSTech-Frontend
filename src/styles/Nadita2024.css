@@ -18,6 +18,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInDown 1s ease;
+      font-family: "Inter", sans-serif;
+
 }
 
 /* === HEADER SECTION === */

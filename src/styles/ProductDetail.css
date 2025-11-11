@@ -3,7 +3,8 @@
   margin-top: 50px;
   /* background-color: #0b0b0d; */
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
 
@@ -54,6 +55,8 @@
   font-size: 1.15rem;
   margin-bottom: 30px;
   line-height: 1.6;
+    font-family: "Montserrat", sans-serif;
+
 }
 
 .hero-btn {
@@ -132,6 +135,8 @@
   color: #d5d5d5;
   font-size: 1rem;
   line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 /* CTA Section */
@@ -149,6 +154,8 @@
 .productDetails-cta p {
   color: #d0d0d0;
   margin-bottom: 25px;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 /* Button */
@@ -206,6 +213,8 @@
   color: #333;
   margin-bottom: 30px;
   line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 .hero-logo-right {

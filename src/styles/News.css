@@ -23,6 +23,8 @@
   max-width: 800px;
   margin: 0 auto 3rem;
   line-height: 1.8;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 /* Grid */
@@ -123,6 +125,8 @@
   color: #555;
   line-height: 1.6;
   padding: 0 1.5rem;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 .read-more {
