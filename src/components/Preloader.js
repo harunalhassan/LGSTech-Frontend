@@ -557,10 +557,10 @@ const easeInOutCubic = (x) =>
 
 const Preloader = ({
   onFinish,
-  duration = 2500,
+  duration = 1200,
   numSlices = 50,
   logoSrc,
-  logoScale = 0.4,
+  logoScale = 0.33,
 }) => {
   const canvasRef = useRef(null);
   const [finished, setFinished] = useState(false);
@@ -620,10 +620,10 @@ const Preloader = ({
         };
       });
 
-      const logoHold = 2400; // 🕐 slower and smoother reveal (3s)
+      const logoHold = 1500; // 🕐 slower and smoother reveal (3s)
       const startRealTime = performance.now();
       const startTime = startRealTime; // 🟢 Start immediately, no delay
-      const endFade = startTime + logoHold + duration+200;
+      const endFade = startTime + logoHold + duration+100;
       let nameShown = false;
 
       const animate = (t) => {

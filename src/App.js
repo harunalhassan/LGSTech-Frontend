@@ -57,7 +57,7 @@ function App() {
 
   return (
     <>
-      <Preloader logoSrc={logo} pieceSize={18} />
+      <Preloader logoSrc={logo} pieceSize={80} />
 
       <Router>
         <Header />
